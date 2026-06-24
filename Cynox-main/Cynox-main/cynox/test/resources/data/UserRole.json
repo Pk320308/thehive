@@ -1,0 +1,11 @@
+[
+  {"from": "certro@cynox.local","to": "ro-cert"},
+  {"from": "certuser@cynox.local","to": "user-cert"},
+  {"from": "certadmin@cynox.local","to": "admin-cert"},
+  {"from": "socro@cynox.local","to": "ro-soc"},
+  {"from": "socuser@cynox.local","to": "user-soc"},
+  {"from": "socadmin@cynox.local","to": "admin-soc"},
+  {"from": "pugro@cynox.local","to": "ro-pug"},
+  {"from": "puguser@cynox.local","to": "user-pug"},
+  {"from": "pugadmin@cynox.local","to": "admin-pug"}
+]

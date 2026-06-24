@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Cynox Community Support
+    url: https://chat.cynox-project.org/
+    about: Please ask and answer questions here.
+  - name: Cynox Documentation
+    url: https://docs.cynox-project.org/
+    about: Please read documentation here.

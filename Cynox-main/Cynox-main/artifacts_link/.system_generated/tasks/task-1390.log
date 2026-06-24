@@ -1,0 +1,6 @@
+Successfully scheduled one-shot timer.
+Expected to fire at: 2026-05-28T02:03:30+05:30
+Prompt: Check if Cynox started successfully and auto-refresh is working
+
+[2026-05-28T02:02:50+05:30] Still waiting. Remaining time: 40s
+[2026-05-28T02:03:07+05:30] Timer cancelled: agent received a message during wait.

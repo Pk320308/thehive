@@ -1,0 +1,84 @@
+<form class="form-horizontal" name="form" ng-submit="$modal.ok()">
+  <div class="modal-header bg-primary">
+    <button type="button" class="close" ng-click="$modal.cancel()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+    <h3 class="modal-title">
+      <i class="fa fa-building-o"></i>
+      {{{'edit': 'Edit', 'add': 'Create'}[$modal.mode]}} Organisation
+    </h3>
+  </div>
+
+  <div class="modal-body">
+
+    <div class="alert alert-info">
+      <i class="fa fa-info-circle"></i>
+      Please provide organisation details. Fields marked with
+      <i class="fa fa-asterisk text-danger"></i>
+      are required.
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error': form.name.$touched && form.name.$invalid }">
+      <label class="col-sm-3 control-label">
+        Name
+        <i class="fa fa-asterisk text-danger"></i>
+      </label>
+
+      <div class="col-sm-9">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-building-o"></i>
+          </span>
+
+          <input type="text" name="name" class="form-control" ng-model="$modal.formData.name"
+            ng-disabled="!!!$modal.nameIsEditable" required placeholder="Organisation's name">
+        </div>
+
+        <p class="help-block" ng-if="form.name.$touched && form.name.$invalid">
+          Organisation name is required.
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error': form.description.$touched && form.description.$invalid }">
+      <label class="col-sm-3 control-label">
+        Description
+        <i class="fa fa-asterisk text-danger"></i>
+      </label>
+
+      <div class="col-sm-9">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="fa fa-align-left"></i>
+          </span>
+
+          <input type="text" name="description" class="form-control" ng-model="$modal.formData.description" required
+            placeholder="Organisation's description">
+        </div>
+
+        <p class="help-block" ng-if="form.description.$touched && form.description.$invalid">
+          Organisation description is required.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-default pull-left" type="button" ng-click="$modal.cancel()">
+      <i class="fa fa-times"></i>
+      Cancel
+    </button>
+
+    <span class="btn pull-left text-muted">
+      <i class="fa fa-asterisk text-danger"></i>
+      Required field
+    </span>
+
+    <button class="btn btn-primary pull-right" type="submit" ng-disabled="form.$invalid">
+      <i class="fa fa-save"></i>
+      Save
+    </button>
+  </div>
+</form>

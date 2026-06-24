@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cynox 4 - Mock Live Demo</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            hiveDark: '#121824',
+            hiveCard: '#1e293b',
+            hiveBorder: '#334155',
+            tlpRed: '#ef4444',
+            tlpAmber: '#f59e0b',
+            tlpGreen: '#10b981',
+            tlpWhite: '#f8fafc',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-hiveDark text-slate-100 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-slate-900 border-b border-hiveBorder px-6 py-4 flex items-center justify-between shadow-lg">
+    <div class="flex items-center space-x-3">
+      <div class="bg-blue-600 p-2 rounded-lg text-white font-bold text-xl tracking-wider">
+        <i class="fa-solid fa-hive mr-1"></i>CYNOX
+      </div>
+      <span class="text-xs bg-slate-800 text-slate-400 px-2 py-1 rounded border border-slate-700">v4.1.24 (Live Mock)</span>
+    </div>
+    
+    <div class="flex items-center space-x-6">
+      <div class="relative">
+        <input type="text" placeholder="Search cases, alerts, observables..." class="bg-slate-800 border border-hiveBorder rounded-lg px-4 py-2 text-sm w-80 focus:outline-none focus:ring-2 focus:ring-blue-500 pl-10">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-slate-400 text-sm"></i>
+      </div>
+      
+      <div class="flex items-center space-x-2 text-sm text-slate-300">
+        <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded-full text-xs font-semibold flex items-center">
+          <span class="h-1.5 w-1.5 bg-emerald-400 rounded-full mr-1.5 animate-pulse"></span>
+          Mock DB: Connected (RAM)
+        </span>
+      </div>
+
+      <div class="flex items-center space-x-3">
+        <div class="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center font-bold text-white shadow">
+          AD
+        </div>
+        <span class="text-sm font-medium">admin@cynox.local</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-1">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-slate-900 border-r border-hiveBorder p-4 flex flex-col justify-between">
+      <div class="space-y-6">
+        <div>
+          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider px-2">Navigation</span>
+          <ul class="mt-2 space-y-1">
+            <li>
+              <a href="#" onclick="switchTab('dashboard')" id="btn-dashboard" class="sidebar-btn flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-blue-600/10 text-blue-400 border border-blue-500/20 font-medium">
+                <i class="fa-solid fa-chart-line w-5 text-lg"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" onclick="switchTab('cases')" id="btn-cases" class="sidebar-btn flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition font-medium">
+                <i class="fa-solid fa-briefcase w-5 text-lg"></i>
+                <span>Cases</span>
+                <span id="case-badge" class="ml-auto bg-slate-800 text-slate-300 text-xs px-2 py-0.5 rounded-full border border-slate-700">3</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" onclick="switchTab('alerts')" id="btn-alerts" class="sidebar-btn flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition font-medium">
+                <i class="fa-solid fa-bell w-5 text-lg"></i>
+                <span>Alerts</span>
+                <span id="alert-badge" class="ml-auto bg-amber-500/20 text-amber-400 text-xs px-2 py-0.5 rounded-full border border-amber-500/30">2</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider px-2">Integrations</span>
+          <ul class="mt-2 space-y-1">
+            <li class="flex items-center justify-between px-3 py-2 text-sm text-slate-400">
+              <span class="flex items-center space-x-3">
+                <i class="fa-solid fa-microchip text-slate-500 w-5"></i>
+                <span>Cortex Analyzer</span>
+              </span>
+              <span class="h-2 w-2 bg-emerald-400 rounded-full"></span>
+            </li>
+            <li class="flex items-center justify-between px-3 py-2 text-sm text-slate-400">
+              <span class="flex items-center space-x-3">
+                <i class="fa-solid fa-share-nodes text-slate-500 w-5"></i>
+                <span>MISP Sharing</span>
+              </span>
+              <span class="h-2 w-2 bg-emerald-400 rounded-full"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-slate-800/50 border border-hiveBorder p-3 rounded-lg text-xs text-slate-400">
+        <div class="font-medium text-slate-300 mb-1">Local Development Environment</div>
+        This interface operates in memory. No changes are written to the original project files.
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 p-8 overflow-y-auto">
+      
+      <!-- TAB: DASHBOARD -->
+      <section id="tab-dashboard" class="space-y-6">
+        <div class="flex justify-between items-center">
+          <div>
+            <h1 class="text-2xl font-bold">Dashboard</h1>
+            <p class="text-sm text-slate-400 mt-1">Real-time statistics of alerts and incidents.</p>
+          </div>
+          <button onclick="openCreateCaseModal()" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg text-sm transition flex items-center shadow-lg">
+            <i class="fa-solid fa-plus mr-2"></i>New Case
+          </button>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="bg-slate-900 border border-hiveBorder p-6 rounded-xl shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-slate-400 text-sm font-medium">Total Cases</span>
+                <h3 class="text-3xl font-bold mt-2" id="stat-total-cases">3</h3>
+              </div>
+              <div class="bg-blue-500/10 text-blue-400 p-3 rounded-lg border border-blue-500/20">
+                <i class="fa-solid fa-briefcase text-xl"></i>
+              </div>
+            </div>
+            <div class="text-xs text-slate-500 mt-4 flex items-center">
+              <i class="fa-solid fa-arrow-trend-up text-emerald-400 mr-1.5"></i>
+              <span class="text-emerald-400 font-semibold mr-1">+1 new case</span> today
+            </div>
+          </div>
+
+          <div class="bg-slate-900 border border-hiveBorder p-6 rounded-xl shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-slate-400 text-sm font-medium">Unresolved Alerts</span>
+                <h3 class="text-3xl font-bold mt-2 text-amber-400" id="stat-unresolved-alerts">2</h3>
+              </div>
+              <div class="bg-amber-500/10 text-amber-400 p-3 rounded-lg border border-amber-500/20">
+                <i class="fa-solid fa-bell text-xl"></i>
+              </div>
+            </div>
+            <div class="text-xs text-slate-500 mt-4 flex items-center">
+              <i class="fa-solid fa-circle-exclamation text-amber-400 mr-1.5"></i>
+              <span class="text-amber-400 font-semibold mr-1">2 critical</span> alerts pending
+            </div>
+          </div>
+
+          <div class="bg-slate-900 border border-hiveBorder p-6 rounded-xl shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-slate-400 text-sm font-medium">Observables Cataloged</span>
+                <h3 class="text-3xl font-bold mt-2 text-emerald-400" id="stat-total-observables">14</h3>
+              </div>
+              <div class="bg-emerald-500/10 text-emerald-400 p-3 rounded-lg border border-emerald-500/20">
+                <i class="fa-solid fa-shield-halved text-xl"></i>
+              </div>
+            </div>
+            <div class="text-xs text-slate-500 mt-4 flex items-center">
+              <span class="text-emerald-400 font-semibold mr-1">100% matched</span> against IOC rules
+            </div>
+          </div>
+
+          <div class="bg-slate-900 border border-hiveBorder p-6 rounded-xl shadow-md">
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-slate-400 text-sm font-medium">Avg Resolution Time</span>
+                <h3 class="text-3xl font-bold mt-2">1.8 hrs</h3>
+              </div>
+              <div class="bg-slate-800 text-slate-300 p-3 rounded-lg border border-slate-700">
+                <i class="fa-solid fa-hourglass-half text-xl"></i>
+              </div>
+            </div>
+            <div class="text-xs text-slate-500 mt-4 flex items-center">
+              <i class="fa-solid fa-arrow-trend-down text-emerald-400 mr-1.5"></i>
+              <span class="text-emerald-400 font-semibold mr-1">12% decrease</span> from last week
+            </div>
+          </div>
+        </div>
+
+        <!-- Layout grid: Recent cases & quick alert review -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 bg-slate-900 border border-hiveBorder rounded-xl p-6 shadow-md">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-lg font-bold">Active Cases</h2>
+              <a href="#" onclick="switchTab('cases')" class="text-sm text-blue-400 hover:underline">View all</a>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-sm text-slate-300">
+                <thead class="bg-slate-800 text-slate-400 uppercase text-xs">
+                  <tr>
+                    <th class="p-3">Case ID / Name</th>
+                    <th class="p-3">Severity</th>
+                    <th class="p-3">TLP</th>
+                    <th class="p-3">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="dashboard-cases-table">
+                  <!-- Dynamic cases injected here -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="bg-slate-900 border border-hiveBorder rounded-xl p-6 shadow-md flex flex-col justify-between">
+            <div>
+              <h2 class="text-lg font-bold mb-4">Pending Alerts</h2>
+              <div class="space-y-4" id="dashboard-alerts-list">
+                <!-- Dynamic alerts injected here -->
+              </div>
+            </div>
+            <a href="#" onclick="switchTab('alerts')" class="mt-4 block text-center text-sm bg-slate-800 hover:bg-slate-750 text-slate-200 border border-hiveBorder py-2.5 rounded-lg transition font-medium">
+              Go to Alerts Inbox
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: CASES -->
+      <section id="tab-cases" class="hidden space-y-6">
+        <div class="flex justify-between items-center">
+          <div>
+            <h1 class="text-2xl font-bold">Cases</h1>
+            <p class="text-sm text-slate-400 mt-1">Manage, investigate, and close incidents.</p>
+          </div>
+          <button onclick="openCreateCaseModal()" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg text-sm transition shadow-lg">
+            <i class="fa-solid fa-plus mr-2"></i>New Case
+          </button>
+        </div>
+
+        <div class="bg-slate-900 border border-hiveBorder rounded-xl overflow-hidden shadow-md">
+          <div class="p-4 bg-slate-800/40 border-b border-hiveBorder flex justify-between items-center flex-wrap gap-4">
+            <div class="flex items-center space-x-3">
+              <span class="text-sm font-semibold text-slate-400">Filters:</span>
+              <select class="bg-slate-800 border border-hiveBorder rounded px-3 py-1.5 text-xs text-slate-200 focus:outline-none">
+                <option>All Severity</option>
+                <option>High</option>
+                <option>Medium</option>
+                <option>Low</option>
+              </select>
+              <select class="bg-slate-800 border border-hiveBorder rounded px-3 py-1.5 text-xs text-slate-200 focus:outline-none">
+                <option>All TLP</option>
+                <option>Red</option>
+                <option>Amber</option>
+                <option>Green</option>
+                <option>White</option>
+              </select>
+            </div>
+            <span class="text-xs text-slate-400" id="cases-count-label">Showing 3 cases</span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm text-slate-300">
+              <thead class="bg-slate-800 text-slate-400 uppercase text-xs border-b border-hiveBorder">
+                <tr>
+                  <th class="p-4">Case Details</th>
+                  <th class="p-4">Severity</th>
+                  <th class="p-4">TLP</th>
+                  <th class="p-4">Assignee</th>
+                  <th class="p-4">Status</th>
+                  <th class="p-4 text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="cases-table-body" class="divide-y divide-hiveBorder">
+                <!-- Cases listing here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB: ALERTS -->
+      <section id="tab-alerts" class="hidden space-y-6">
+        <div class="flex justify-between items-center">
+          <div>
+            <h1 class="text-2xl font-bold">Alerts Inbox</h1>
+            <p class="text-sm text-slate-400 mt-1">Review incoming security alerts from SIEM, EDR, and email gateways.</p>
+          </div>
+        </div>
+
+        <div class="bg-slate-900 border border-hiveBorder rounded-xl overflow-hidden shadow-md">
+          <div class="p-4 bg-slate-800/40 border-b border-hiveBorder flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+              <button onclick="bulkPromoteAlerts()" class="bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 border border-blue-500/30 px-3 py-1.5 rounded text-xs font-semibold transition">
+                <i class="fa-solid fa-briefcase mr-1.5"></i>Promote to Case
+              </button>
+            </div>
+            <span class="text-xs text-slate-400" id="alerts-count-label">2 unresolved alerts</span>
+          </div>
+
+          <div class="divide-y divide-hiveBorder" id="alerts-container">
+            <!-- Dynamic alerts cards here -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Create Case Modal -->
+  <div id="create-case-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center hidden z-50 transition-opacity">
+    <div class="bg-slate-900 border border-hiveBorder rounded-xl w-full max-w-xl shadow-2xl p-6 space-y-6">
+      <div class="flex justify-between items-center border-b border-hiveBorder pb-3">
+        <h3 class="text-lg font-bold flex items-center">
+          <i class="fa-solid fa-briefcase text-blue-500 mr-2"></i>Create New Case
+        </h3>
+        <button onclick="closeCreateCaseModal()" class="text-slate-400 hover:text-slate-200">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <form id="new-case-form" onsubmit="createCase(event)" class="space-y-4">
+        <div class="space-y-1">
+          <label class="text-xs font-semibold text-slate-400 uppercase">Case Title</label>
+          <input type="text" id="case-title" required placeholder="e.g., Suspicious Phishing Email Received" class="w-full bg-slate-800 border border-hiveBorder rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="space-y-1">
+            <label class="text-xs font-semibold text-slate-400 uppercase">Severity</label>
+            <select id="case-severity" class="w-full bg-slate-800 border border-hiveBorder rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="Low">Low</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+          <div class="space-y-1">
+            <label class="text-xs font-semibold text-slate-400 uppercase">TLP (Traffic Light Protocol)</label>
+            <select id="case-tlp" class="w-full bg-slate-800 border border-hiveBorder rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="White">White</option>
+              <option value="Green" selected>Green</option>
+              <option value="Amber">Amber</option>
+              <option value="Red">Red</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="space-y-1">
+          <label class="text-xs font-semibold text-slate-400 uppercase">Description</label>
+          <textarea id="case-description" rows="4" placeholder="Enter investigation details..." class="w-full bg-slate-800 border border-hiveBorder rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        </div>
+
+        <div class="flex justify-end space-x-3 pt-3 border-t border-hiveBorder">
+          <button type="button" onclick="closeCreateCaseModal()" class="px-4 py-2 bg-slate-800 border border-hiveBorder rounded-lg text-sm text-slate-300 hover:bg-slate-700 transition">
+            Cancel
+          </button>
+          <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg text-sm transition shadow-md">
+            Create Case
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Javascript Logic for Mock app -->
+  <script>
+    // State management
+    let state = {
+      cases: [
+        { id: '1', title: 'Unauthorized PowerShell Execution', severity: 'High', tlp: 'Amber', assignee: 'admin@cynox.local', status: 'Open', desc: 'Alert triggered on workstation-42 for anomalous script execution.' },
+        { id: '2', title: 'Suspicious Outlook Login Location', severity: 'Medium', tlp: 'Green', assignee: 'analyst@cynox.local', status: 'Open', desc: 'Login detected from a foreign country without travel clearance.' },
+        { id: '3', title: 'Phishing Email Report - Invoice #7384', severity: 'Low', tlp: 'White', assignee: 'admin@cynox.local', status: 'Open', desc: 'Employee flagged suspicious mail with attachment invoice_7384.zip.' }
+      ],
+      alerts: [
+        { id: '101', title: 'Ransomware Ransom Note File Created', source: 'Crowdstrike EDR', severity: 'High', tlp: 'Red', time: '10 mins ago', desc: 'Detected creation of decrypt_instructions.txt on file server.' },
+        { id: '102', title: 'Brute Force Attempt on SSH Daemon', source: 'Linux Auth Logs', severity: 'Medium', tlp: 'Green', time: '40 mins ago', desc: 'Over 100 failed root login attempts within 5 minutes on server-prod-01.' }
+      ],
+      observables: 14
+    };
+
+    function updateCounters() {
+      // Badges
+      document.getElementById('case-badge').innerText = state.cases.length;
+      document.getElementById('alert-badge').innerText = state.alerts.length;
+      
+      // Dashboard Stats
+      document.getElementById('stat-total-cases').innerText = state.cases.length;
+      document.getElementById('stat-unresolved-alerts').innerText = state.alerts.length;
+      document.getElementById('stat-total-observables').innerText = state.observables;
+      
+      // Count Labels
+      document.getElementById('cases-count-label').innerText = `Showing ${state.cases.length} cases`;
+      document.getElementById('alerts-count-label').innerText = `${state.alerts.length} unresolved alerts`;
+    }
+
+    function renderCases() {
+      const tableBody = document.getElementById('cases-table-body');
+      const dashTable = document.getElementById('dashboard-cases-table');
+      
+      tableBody.innerHTML = '';
+      dashTable.innerHTML = '';
+
+      state.cases.forEach(c => {
+        // Build badge style
+        let tlpColor = 'bg-slate-700 text-slate-100';
+        if (c.tlp === 'Red') tlpColor = 'bg-red-500/20 text-red-400 border border-red-500/30';
+        else if (c.tlp === 'Amber') tlpColor = 'bg-amber-500/20 text-amber-400 border border-amber-500/30';
+        else if (c.tlp === 'Green') tlpColor = 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+
+        let sevColor = 'text-blue-400 bg-blue-500/10 border border-blue-500/20';
+        if (c.severity === 'High') sevColor = 'text-red-400 bg-red-500/10 border border-red-500/20';
+        else if (c.severity === 'Medium') sevColor = 'text-amber-400 bg-amber-500/10 border border-amber-500/20';
+
+        // Main Cases Table
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td class="p-4">
+            <div class="font-semibold text-slate-200">#${c.id} - ${c.title}</div>
+            <div class="text-xs text-slate-400 mt-0.5 truncate max-w-md">${c.desc}</div>
+          </td>
+          <td class="p-4">
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium ${sevColor}">${c.severity}</span>
+          </td>
+          <td class="p-4">
+            <span class="text-xs px-2.5 py-1 rounded-full font-medium ${tlpColor}">TLP:${c.tlp}</span>
+          </td>
+          <td class="p-4 text-slate-300 text-xs">${c.assignee}</td>
+          <td class="p-4">
+            <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded font-semibold">${c.status}</span>
+          </td>
+          <td class="p-4 text-center">
+            <button onclick="deleteCase('${c.id}')" class="text-red-400 hover:text-red-300 mx-1 text-sm" title="Delete Case"><i class="fa-solid fa-trash"></i></button>
+          </td>
+        `;
+        tableBody.appendChild(row);
+
+        // Dashboard Small Table
+        const dashRow = document.createElement('tr');
+        dashRow.className = 'border-b border-hiveBorder';
+        dashRow.innerHTML = `
+          <td class="p-3 font-medium text-slate-200 truncate max-w-xs">#${c.id} ${c.title}</td>
+          <td class="p-3"><span class="text-xs px-2 py-0.5 rounded ${sevColor}">${c.severity}</span></td>
+          <td class="p-3"><span class="text-xs px-2 py-0.5 rounded ${tlpColor}">TLP:${c.tlp}</span></td>
+          <td class="p-3"><span class="text-xs bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded">${c.status}</span></td>
+        `;
+        dashTable.appendChild(dashRow);
+      });
+    }
+
+    function renderAlerts() {
+      const container = document.getElementById('alerts-container');
+      const dashList = document.getElementById('dashboard-alerts-list');
+      
+      container.innerHTML = '';
+      dashList.innerHTML = '';
+
+      if (state.alerts.length === 0) {
+        container.innerHTML = '<div class="p-6 text-center text-slate-500">No unresolved alerts in inbox.</div>';
+        dashList.innerHTML = '<div class="text-center py-4 text-slate-500 text-sm">All clear!</div>';
+        return;
+      }
+
+      state.alerts.forEach(a => {
+        let tlpColor = 'bg-slate-700';
+        if (a.tlp === 'Red') tlpColor = 'bg-red-500';
+        else if (a.tlp === 'Amber') tlpColor = 'bg-amber-500';
+        else if (a.tlp === 'Green') tlpColor = 'bg-emerald-500';
+
+        let sevColor = 'text-blue-400 bg-blue-500/10 border border-blue-500/20';
+        if (a.severity === 'High') sevColor = 'text-red-400 bg-red-500/10 border border-red-500/20';
+        else if (a.severity === 'Medium') sevColor = 'text-amber-400 bg-amber-500/10 border border-amber-500/20';
+
+        // Main Alerts Inbox
+        const card = document.createElement('div');
+        card.className = 'p-6 flex items-start justify-between hover:bg-slate-800/20 transition';
+        card.innerHTML = `
+          <div class="flex items-start space-x-4">
+            <span class="w-1.5 h-12 ${tlpColor} rounded-full mt-1"></span>
+            <div>
+              <div class="flex items-center space-x-3">
+                <h4 class="font-bold text-slate-200 text-base">${a.title}</h4>
+                <span class="text-xs px-2 py-0.5 rounded font-medium ${sevColor}">${a.severity}</span>
+                <span class="text-xs bg-slate-800 border border-slate-700 px-2 py-0.5 rounded text-slate-400">${a.source}</span>
+              </div>
+              <p class="text-sm text-slate-400 mt-2">${a.desc}</p>
+              <div class="text-xs text-slate-500 mt-2 flex items-center space-x-4">
+                <span><i class="fa-regular fa-clock mr-1.5"></i>${a.time}</span>
+                <span>TLP: <strong class="text-slate-300">${a.tlp}</strong></span>
+              </div>
+            </div>
+          </div>
+          <button onclick="promoteAlert('${a.id}')" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs px-3 py-2 rounded-lg transition flex items-center">
+            <i class="fa-solid fa-briefcase mr-1.5"></i>Import as Case
+          </button>
+        `;
+        container.appendChild(card);
+
+        // Dashboard Alerts List
+        const listRow = document.createElement('div');
+        listRow.className = 'flex items-center justify-between bg-slate-800/40 border border-hiveBorder p-3 rounded-lg hover:bg-slate-800/60 transition';
+        listRow.innerHTML = `
+          <div class="truncate max-w-[180px]">
+            <div class="text-sm font-semibold text-slate-200 truncate">${a.title}</div>
+            <div class="text-xs text-slate-400 truncate mt-0.5">${a.source}</div>
+          </div>
+          <button onclick="promoteAlert('${a.id}')" class="bg-blue-600 hover:bg-blue-700 text-white text-xs px-2.5 py-1.5 rounded transition font-medium" title="Import as Case">
+            Import
+          </button>
+        `;
+        dashList.appendChild(listRow);
+      });
+    }
+
+    // Switch Tabs
+    function switchTab(tabId) {
+      // Toggle hidden class on sections
+      ['dashboard', 'cases', 'alerts'].forEach(t => {
+        document.getElementById(`tab-${t}`).classList.add('hidden');
+        document.getElementById(`btn-${t}`).className = 'sidebar-btn flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition font-medium';
+      });
+
+      document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+      document.getElementById(`btn-${tabId}`).className = 'sidebar-btn flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-blue-600/10 text-blue-400 border border-blue-500/20 font-medium';
+    }
+
+    // Modal Control
+    function openCreateCaseModal() {
+      document.getElementById('create-case-modal').classList.remove('hidden');
+    }
+
+    function closeCreateCaseModal() {
+      document.getElementById('create-case-modal').classList.add('hidden');
+      document.getElementById('new-case-form').reset();
+    }
+
+    // Actions
+    function createCase(e) {
+      e.preventDefault();
+      
+      const title = document.getElementById('case-title').value;
+      const severity = document.getElementById('case-severity').value;
+      const tlp = document.getElementById('case-tlp').value;
+      const desc = document.getElementById('case-description').value;
+      
+      const newId = String(state.cases.length + 1);
+      state.cases.unshift({
+        id: newId,
+        title: title,
+        severity: severity,
+        tlp: tlp,
+        assignee: 'admin@cynox.local',
+        status: 'Open',
+        desc: desc || 'No description provided.'
+      });
+
+      state.observables += Math.floor(Math.random() * 4) + 1; // Add mock observables
+      
+      closeCreateCaseModal();
+      updateCounters();
+      renderCases();
+    }
+
+    function deleteCase(id) {
+      state.cases = state.cases.filter(c => c.id !== id);
+      updateCounters();
+      renderCases();
+    }
+
+    function promoteAlert(alertId) {
+      const alert = state.alerts.find(a => a.id === alertId);
+      if (!alert) return;
+
+      // Create a case out of it
+      const newCaseId = String(state.cases.length + 1);
+      state.cases.unshift({
+        id: newCaseId,
+        title: alert.title,
+        severity: alert.severity,
+        tlp: alert.tlp,
+        assignee: 'admin@cynox.local',
+        status: 'Open',
+        desc: `Imported Alert: ${alert.desc} | Source: ${alert.source}`
+      });
+
+      // Remove alert
+      state.alerts = state.alerts.filter(a => a.id !== alertId);
+      state.observables += 3;
+
+      updateCounters();
+      renderCases();
+      renderAlerts();
+    }
+
+    // Initialization
+    updateCounters();
+    renderCases();
+    renderAlerts();
+  </script>
+</body>
+</html>

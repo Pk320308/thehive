@@ -1,0 +1,30 @@
+
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : var qrcode = window.qrcode || window.QRCode;
+                    
+                    (function(QRCode){
+                      'use strict';
+                    
+                      angular.module('ja.qr', [])
+                      .controller('QrCtrl', ['$scope', function($scope){
+                        $scope.getTypeNumeber = functio...
+RawContent        : HTTP/1.0 200 OK
+                    Access-Control-Allow-Origin: *
+                    Content-Length: 5874
+                    Content-Type: application/javascript; charset=utf-8
+                    Date: Wed, 27 May 2026 15:06:53 GMT
+                    Server: SimpleHTTP/0.6 Python/3.13.13
+                    ...
+Forms             : 
+Headers           : {[Access-Control-Allow-Origin, *], [Content-Length, 5874], [Content-Type, application/javascript; 
+                    charset=utf-8], [Date, Wed, 27 May 2026 15:06:53 GMT]...}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : 
+RawContentLength  : 5874
+
+
+

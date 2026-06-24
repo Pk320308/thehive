@@ -1,0 +1,201 @@
+<div class="row admin-page organisation-page">
+    <div class="col-md-12">
+        <div class="box admin-box organisation-box">
+
+            <div class="box-header with-border admin-header organisation-header">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h3 class="box-title admin-title organisation-title">
+                            <i class="fa fa-building-o"></i>
+                            List of Organisations
+                        </h3>
+                        <p class="admin-subtitle organisation-subtitle">
+                            Showing {{$vm.list.values.length || 0}} of {{$vm.list.total}} organisations
+                        </p>
+                    </div>
+
+                    <div class="col-sm-4 text-right">
+                        <span class="label label-primary admin-count organisation-count">
+                            {{$vm.list.values.length || 0}} / {{$vm.list.total}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-body admin-body organisation-body">
+
+                <div class="admin-toolbar organisation-toolbar">
+                    <div ng-include="'views/partials/admin/organisation/list/toolbar.html'"></div>
+                </div>
+
+                <div class="mt-xs filter-panel admin-filter-panel organisation-filter-panel"
+                    ng-include="'views/partials/admin/organisation/list/filters.html'"
+                    ng-show="$vm.filtering.context.showFilters">
+                </div>
+
+                <div class="row mt-xs">
+                    <div class="col-md-12 clearfix">
+                        <div class="admin-filter-preview organisation-filter-preview">
+                            <filters-preview filters="$vm.filtering.context.filters"
+                                on-clear-item="$vm.removeFilter(field)"
+                                on-clear-all="$vm.clearFilters()"></filters-preview>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-s">
+                    <div class="col-md-12">
+
+                        <div class="admin-search-box organisation-search-box">
+                            <psearch control="$vm.list"></psearch>
+                        </div>
+
+                        <div class="table-responsive admin-table-card organisation-table-wrapper">
+                            <table class="table table-hover admin-table organisation-table case-list">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <a href class="text-default admin-link organisation-sort-link"
+                                                ng-click="$vm.sortByField('name')">
+                                                Name
+                                                <i ng-show="$vm.filtering.context.sort.indexOf('+name') === -1 && $vm.filtering.context.sort.indexOf('-name') === -1"
+                                                    class="fa fa-sort"></i>
+                                                <i ng-show="$vm.filtering.context.sort.indexOf('+name') !== -1"
+                                                    class="fa fa-caret-up"></i>
+                                                <i ng-show="$vm.filtering.context.sort.indexOf('-name') !== -1"
+                                                    class="fa fa-caret-down"></i>
+                                            </a>
+                                        </th>
+
+                                        <th style="width: 300px">
+                                            <a href class="text-default admin-link organisation-sort-link"
+                                                ng-click="$vm.sortByField('_createdBy')">
+                                                Created By
+                                                <i ng-show="$vm.filtering.context.sort.indexOf('+_createdBy') === -1 && $vm.filtering.context.sort.indexOf('-_createdBy') === -1"
+                                                    class="fa fa-sort"></i>
+                                                <i ng-show="$vm.filtering.context.sort.indexOf('+_createdBy') !== -1"
+                                                    class="fa fa-caret-up"></i>
+                                                <i ng-show="$vm.filtering.context.sort.indexOf('-_createdBy') !== -1"
+                                                    class="fa fa-caret-down"></i>
+                                            </a>
+                                        </th>
+
+                                        <th style="width: 170px">
+                                            Dates
+
+                                            <a href class="text-default ml-xxxs admin-link organisation-sort-link"
+                                                ng-click="$vm.sortByField('_createdAt')"
+                                                uib-tooltip="Sort by creation date">
+                                                C.
+                                                <i ng-show="$vm.filtering.context.sort.indexOf('+_createdAt') === -1 && $vm.filtering.context.sort.indexOf('-_createdAt') === -1"
+                                                    class="fa fa-sort"></i>
+                                                <i ng-show="$vm.filtering.context.sort.indexOf('+_createdAt') !== -1"
+                                                    class="fa fa-caret-up"></i>
+                                                <i ng-show="$vm.filtering.context.sort.indexOf('-_createdAt') !== -1"
+                                                    class="fa fa-caret-down"></i>
+                                            </a>
+
+                                            <a href class="text-default ml-xxxs admin-link organisation-sort-link"
+                                                ng-click="$vm.sortByField('_updatedAt')"
+                                                uib-tooltip="Sort by last update date">
+                                                U.
+                                                <i ng-show="$vm.filtering.context.sort.indexOf('+_updatedAt') === -1 && $vm.filtering.context.sort.indexOf('-_updatedAt') === -1"
+                                                    class="fa fa-sort"></i>
+                                                <i ng-show="$vm.filtering.context.sort.indexOf('+_updatedAt') !== -1"
+                                                    class="fa fa-caret-up"></i>
+                                                <i ng-show="$vm.filtering.context.sort.indexOf('-_updatedAt') !== -1"
+                                                    class="fa fa-caret-down"></i>
+                                            </a>
+                                        </th>
+
+                                        <th style="width: 270px" class="text-right">
+                                            Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr ng-repeat="org in $vm.list.values" class="admin-row organisation-row">
+                                        <td>
+                                            <div class="org-name admin-name organisation-name">
+                                                <a
+                                                    ui-sref="app.administration.organisations-details({organisation: org.name})">
+                                                    <i class="fa fa-sitemap"></i>
+                                                    {{::org.name}}
+                                                </a>
+                                            </div>
+
+                                            <div
+                                                class="org-description text-muted admin-description organisation-description">
+                                                {{::org.description || 'No description'}}
+                                            </div>
+
+                                            <div class="mt-xs organisation-links" ng-if="org.links.length > 0">
+                                                <span class="text-muted mr-xxs">Linked organisations:</span>
+                                                <span
+                                                    class="label label-default mr-xxs admin-label organisation-link-label"
+                                                    ng-repeat="link in ::org.links | orderBy">{{link}}</span>
+                                            </div>
+
+                                            <div class="mt-xs organisation-links" ng-if="org.links.length === 0">
+                                                <span class="text-muted mr-xxs">Linked organisations:</span>
+                                                <span
+                                                    class="label label-warning admin-label-warning organisation-none-label">
+                                                    None
+                                                </span>
+                                            </div>
+                                        </td>
+
+                                        <td class="clearfix organisation-user">
+                                            <user user-id="org._createdBy" icon-only="false" icon-size="m"></user>
+                                        </td>
+
+                                        <td class="organisation-dates">
+                                            <div
+                                                ng-class="{'text-bold': $vm.filtering.context.sort.indexOf('+_createdAt') !== -1 || $vm.filtering.context.sort.indexOf('-_createdAt') !== -1}">
+                                                <span class="date-label">C.</span>
+                                                <a href ng-click="$vm.addFilterValue('_createdAt', org._createdAt)">
+                                                    {{org._createdAt | shortDate}}
+                                                </a>
+                                            </div>
+
+                                            <div ng-if="org._updatedAt > 0"
+                                                ng-class="{'text-bold': $vm.filtering.context.sort.indexOf('+_updatedAt') !== -1 || $vm.filtering.context.sort.indexOf('-_updatedAt') !== -1}">
+                                                <span class="date-label">U.</span>
+                                                <a href ng-click="$vm.addFilterValue('_updatedAt', org._updatedAt)">
+                                                    {{org._updatedAt | shortDate}}
+                                                </a>
+                                            </div>
+                                        </td>
+
+                                        <td class="text-right admin-actions organisation-actions">
+                                            <a class="btn btn-xs btn-primary"
+                                                ui-sref="app.administration.organisations-details({organisation: org.name})">
+                                                <i class="fa fa-cog"></i> Configure
+                                            </a>
+
+                                            <button type="button" class="btn btn-xs btn-info"
+                                                ng-click="$vm.showNewOrg('edit', org)">
+                                                <i class="fa fa-edit"></i> Edit
+                                            </button>
+
+                                            <button type="button" class="btn btn-xs btn-success"
+                                                ng-click="$vm.showLinks(org)" ng-if="org.name !== 'admin'">
+                                                <i class="fa fa-link"></i> Link
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="admin-bottom-search organisation-bottom-search">
+                            <psearch control="$vm.list"></psearch>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

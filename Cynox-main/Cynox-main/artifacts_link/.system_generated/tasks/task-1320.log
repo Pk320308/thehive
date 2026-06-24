@@ -1,0 +1,6 @@
+Successfully scheduled one-shot timer.
+Expected to fire at: 2026-05-28T01:51:35+05:30
+Prompt: Check backup folder results
+
+[2026-05-28T01:51:05+05:30] Still waiting. Remaining time: 30s
+[2026-05-28T01:51:13+05:30] Timer cancelled: agent received a message during wait.

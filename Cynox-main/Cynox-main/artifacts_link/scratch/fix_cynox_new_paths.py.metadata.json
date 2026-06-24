@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_OTHER",
+  "summary":  "Python script to correct root path references from E:\\Cynox New to E:\\THE Hive New, and database folder mappings from db_data\\thehive to db_data\\cynox in automation scripts.",
+  "updatedAt":  "2026-05-27T20:39:00.355903200Z"
+}

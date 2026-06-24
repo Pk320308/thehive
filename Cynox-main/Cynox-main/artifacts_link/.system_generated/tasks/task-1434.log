@@ -1,0 +1,8 @@
+
+LocalAddress LocalPort       State OwningProcess
+------------ ---------       ----- -------------
+::1               9001 Established         23868
+::1               9001      Listen         23868
+::                9001      Listen         22272
+
+

@@ -1,0 +1,4 @@
+# Environment File for Cynox
+
+# JAVA_OPTS for Cynox service can be set here
+#JAVA_OPTS=""

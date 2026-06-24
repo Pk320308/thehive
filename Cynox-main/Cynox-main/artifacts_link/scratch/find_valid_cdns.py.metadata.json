@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_OTHER",
+  "summary":  "Helper python script to query multiple CDN candidate URLs for the broken Bower dependencies and output the working paths.",
+  "updatedAt":  "2026-05-27T11:34:31.380336900Z"
+}

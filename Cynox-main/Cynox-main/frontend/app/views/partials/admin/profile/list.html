@@ -1,0 +1,108 @@
+<div class="row admin-page profiles-page">
+    <div class="col-md-12">
+        <div class="box admin-box profiles-box">
+
+            <div class="box-header with-border admin-header profiles-header">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h3 class="box-title admin-title profiles-title">
+                            <i class="fa fa-users"></i>
+                            List of Profiles
+                        </h3>
+                        <p class="admin-subtitle profiles-subtitle">
+                            Manage user profiles and assigned permissions
+                        </p>
+                    </div>
+
+                    <div class="col-sm-4 text-right">
+                        <span class="label label-primary admin-count profiles-count">
+                            {{$vm.list.length || 0}} Profiles
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-body admin-body profiles-body">
+
+                <div class="admin-toolbar profiles-toolbar">
+                    <div ng-include="'views/partials/admin/profile/list/toolbar.html'"></div>
+                </div>
+
+                <div class="row mt-s">
+                    <div class="col-md-12">
+
+                        <div class="table-responsive admin-table-card profiles-table-wrapper">
+                            <table class="table table-hover admin-table profiles-table case-list">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 300px">
+                                            <i class="fa fa-id-badge"></i>
+                                            Name
+                                        </th>
+
+                                        <th>
+                                            <i class="fa fa-shield"></i>
+                                            Permissions
+                                        </th>
+
+                                        <th style="width: 180px" class="text-right">
+                                            Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr ng-repeat="profile in $vm.list | orderBy:'name'" class="admin-row profiles-row">
+                                        <td>
+                                            <div class="profile-name admin-name profiles-name">
+                                                <i class="fa fa-user-circle-o"></i>
+                                                {{::profile.name}}
+                                            </div>
+                                        </td>
+
+                                        <td class="wrap profiles-permissions">
+                                            <span
+                                                class="label label-default mr-xxs mb-xxs admin-label profiles-permission-label"
+                                                ng-repeat="permission in profile.permissions | orderBy:identity">
+                                                {{permission}}
+                                            </span>
+
+                                            <span class="label label-warning admin-label-warning profiles-no-permission"
+                                                ng-if="!profile.permissions || profile.permissions.length === 0">
+                                                No permissions
+                                            </span>
+                                        </td>
+
+                                        <td class="text-right nowrap admin-actions profiles-actions"
+                                            ng-if="$vm.canDelete(profile)">
+                                            <button type="button" class="btn btn-xs btn-info"
+                                                ng-click="$vm.showProfile('edit', profile)">
+                                                <i class="fa fa-edit"></i>
+                                                Edit
+                                            </button>
+
+                                            <button type="button" class="btn btn-xs btn-danger"
+                                                ng-click="$vm.removeProfile(profile)">
+                                                <i class="fa fa-trash"></i>
+                                                Delete
+                                            </button>
+                                        </td>
+
+                                        <td class="text-right admin-actions profiles-actions"
+                                            ng-if="!$vm.canDelete(profile)">
+                                            <span class="label label-default admin-label profiles-protected-label">
+                                                Protected
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

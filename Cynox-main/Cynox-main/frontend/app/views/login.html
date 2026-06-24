@@ -1,0 +1,272 @@
+<style>
+    .cynox-login-page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: radial-gradient(circle at 10% 20%, rgba(30, 58, 138, 0.4) 0%, transparent 50%),
+                    radial-gradient(circle at 90% 80%, rgba(88, 28, 135, 0.4) 0%, transparent 50%),
+                    #020617;
+        overflow: hidden;
+        z-index: 9999; /* Ensure it covers everything else */
+    }
+
+    .cynox-login-page::before {
+        content: '';
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvc3ZnPg==') repeat;
+        animation: rotateBg 150s linear infinite;
+        opacity: 0.5;
+        z-index: 0;
+    }
+
+    @keyframes rotateBg {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .cynox-top-brand {
+        position: absolute;
+        top: 30px;
+        left: 40px;
+        z-index: 10;
+    }
+
+    .cynox-top-brand img {
+        height: 40px;
+        filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+    }
+
+    .cynox-login-box {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        max-width: 440px;
+        margin: 0 20px;
+        perspective: 1000px;
+    }
+
+    .cynox-login-card {
+        background: rgba(15, 23, 42, 0.65) !important;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        padding: 50px 40px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(59, 130, 246, 0.1);
+        animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        transform-origin: center;
+        opacity: 0;
+        transform: translateY(30px) rotateX(10deg);
+    }
+
+    @keyframes cardEntrance {
+        to {
+            opacity: 1;
+            transform: translateY(0) rotateX(0deg);
+        }
+    }
+
+    .cynox-brand-card {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .cynox-brand-title {
+        font-family: 'Outfit', sans-serif;
+        font-size: 42px;
+        font-weight: 800;
+        letter-spacing: -1px;
+        background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: -5px;
+    }
+
+    .cynox-brand-subtitle {
+        font-family: 'Inter', sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 4px;
+        color: #3b82f6;
+        text-transform: uppercase;
+    }
+
+    .cynox-login-title {
+        font-family: 'Inter', sans-serif;
+        font-size: 16px;
+        color: #94a3b8;
+        text-align: center;
+        margin-bottom: 35px;
+        font-weight: 400;
+    }
+
+    .cynox-form-group {
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+    .cynox-input {
+        background: rgba(0, 0, 0, 0.2) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: #fff !important;
+        border-radius: 12px !important;
+        padding: 14px 20px !important;
+        height: 52px !important;
+        font-size: 15px;
+        transition: all 0.3s ease;
+    }
+
+    .cynox-input:focus {
+        background: rgba(0, 0, 0, 0.4) !important;
+        border-color: #3b82f6 !important;
+        box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15) !important;
+    }
+
+    .cynox-input::placeholder {
+        color: #64748b !important;
+    }
+
+    .cynox-login-btn {
+        background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%) !important;
+        border: none !important;
+        border-radius: 12px !important;
+        height: 52px;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        margin-top: 10px;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4) !important;
+    }
+
+    .cynox-login-btn:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 35px -5px rgba(37, 99, 235, 0.6) !important;
+    }
+
+    .cynox-login-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .cynox-or {
+        margin: 30px 0;
+        font-size: 12px;
+        color: #64748b;
+    }
+
+    .cynox-sso-btn {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 12px !important;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        color: #e2e8f0 !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .cynox-sso-btn:hover {
+        background: rgba(255, 255, 255, 0.1) !important;
+        border-color: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    .cynox-login-note {
+        text-align: center;
+        font-size: 12px;
+        color: #475569;
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+
+    .cynox-version {
+        color: #475569;
+        font-size: 12px;
+        position: absolute;
+        bottom: -40px;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
+</style>
+
+<div class="cynox-login-page">
+
+    <div class="cynox-top-brand">
+        <img alt="Cynox" src="images/logo.white.png">
+    </div>
+
+    <div class="cynox-login-box">
+
+        <div class="cynox-login-card">
+
+            <div class="cynox-brand-card">
+                <div class="cynox-brand-title">Cynox</div>
+                <div class="cynox-brand-subtitle">SECURITY LLP</div>
+            </div>
+
+            <h2 class="cynox-login-title">Secure Access Portal</h2>
+
+            <form name="loginForm">
+
+                <div class="form-group cynox-form-group">
+                    <input type="text" class="form-control cynox-input" placeholder="Enter your username"
+                        ng-model="params.username" autocomplete="off" required>
+                </div>
+
+                <div class="form-group cynox-form-group">
+                    <input type="password" class="input form-control cynox-input" placeholder="Enter your password"
+                        ng-model="params.password" autocomplete="off" required>
+                </div>
+
+                <div class="mv-s" ng-if="params.requireMfa === true">
+                    <div class="text-danger text-center" style="margin-bottom: 10px; font-size: 13px;">
+                        Please provide MFA code
+                    </div>
+
+                    <div class="form-group cynox-form-group">
+                        <input type="text" class="input form-control cynox-input" placeholder="Enter MFA code"
+                            ng-model="params.mfaCode" autocomplete="off" ng-required="params.requireMfa">
+                    </div>
+                </div>
+
+                <div class="row" style="margin:0;">
+                    <button type="submit" ng-click="login()" class="btn btn-primary btn-block cynox-login-btn"
+                        ng-disabled="loginForm.$invalid">
+                        Sign In Securely
+                    </button>
+                </div>
+
+                <div ng-if="::ssoEnabled()">
+                    <div class="or-separator cynox-or">OR</div>
+
+                    <div class="mv-xs">
+                        <a class="btn btn-block cynox-sso-btn" href="./api/ssoLogin">
+                            Sign In with SSO
+                        </a>
+                    </div>
+
+                    <div class="text-danger wrap text-center" style="margin-top:10px; font-size: 13px;" ng-if="ssoError">
+                        {{ssoError}}
+                    </div>
+                </div>
+
+                <p class="cynox-login-note">
+                    Protected authentication system for authorized users only.
+                </p>
+
+            </form>
+        </div>
+
+        <div class="cynox-version">
+            <small>Version: {{version}}</small>
+        </div>
+    </div>
+</div>

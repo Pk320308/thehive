@@ -1,0 +1,189 @@
+<div class="row admin-page attack-pattern-page">
+    <div class="col-md-12">
+        <div class="box admin-box attack-pattern-box">
+
+            <div class="box-header with-border admin-header">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h3 class="box-title admin-title">
+                            <i class="fa fa-bullseye"></i>
+                            List of ATT&amp;CK Patterns
+                        </h3>
+                        <p class="admin-subtitle">
+                            Showing {{$vm.list.values.length || 0}} of {{$vm.list.total}} ATT&amp;CK patterns
+                        </p>
+                    </div>
+
+                    <div class="col-sm-4 text-right">
+                        <span class="label label-primary admin-count">
+                            {{$vm.list.values.length || 0}} / {{$vm.list.total}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-body admin-body">
+
+                <div class="admin-toolbar">
+                    <div ng-include="'views/partials/admin/attack/list/toolbar.html'"></div>
+                </div>
+
+                <div class="mt-xs filter-panel admin-filter-panel"
+                    ng-include="'views/partials/admin/attack/list/filters.html'"
+                    ng-show="$vm.filtering.context.showFilters">
+                </div>
+
+                <div class="row mt-xs">
+                    <div class="col-md-12 clearfix">
+                        <div class="admin-filter-preview">
+                            <filters-preview filters="$vm.filtering.context.filters"
+                                on-clear-item="$vm.removeFilter(field)" on-clear-all="$vm.clearFilters()">
+                            </filters-preview>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mv-s" ng-show="$vm.loading === false && $vm.list.values.length === 0">
+                    <div class="col-md-12">
+                        <div class="admin-empty">
+                            <i class="fa fa-info-circle"></i>
+                            No ATT&amp;CK patterns found.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mv-s" ng-show="$vm.loading === true">
+                    <div class="col-md-12">
+                        <div class="admin-loading">
+                            <i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
+                            <span>Loading patterns...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-s" ng-if="$vm.loading === false && $vm.list.values.length > 0">
+                    <div class="col-md-12">
+
+                        <div class="admin-search-box">
+                            <psearch control="$vm.list"></psearch>
+                        </div>
+
+                        <div class="table-responsive admin-table-card">
+                            <table class="table table-hover admin-table case-list">
+                                <thead>
+                                    <tr>
+                                        <th width="110">
+                                            <i class="fa fa-hashtag"></i>
+                                            ID
+                                        </th>
+
+                                        <th width="220">
+                                            <i class="fa fa-tag"></i>
+                                            Name
+                                        </th>
+
+                                        <th width="220">
+                                            Sub-Technique Of
+                                        </th>
+
+                                        <th width="220">
+                                            Tactics
+                                        </th>
+
+                                        <th>Description</th>
+
+                                        <th width="140" class="text-right">
+                                            Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr ng-repeat="pattern in $vm.list.values" class="admin-row">
+                                        <td>
+                                            <span class="label label-default admin-label attack-id-label">
+                                                <a href ng-click="$vm.show(pattern.patternId)">
+                                                    {{::pattern.patternId}}
+                                                </a>
+                                            </span>
+                                        </td>
+
+                                        <td>
+                                            <div class="admin-name" ng-class="{'text-danger': pattern.revoked}">
+                                                <i class="fa fa-bullseye"></i>
+                                                {{::pattern.name}}
+                                            </div>
+
+                                            <span class="label label-danger attack-revoked-label"
+                                                ng-if="pattern.revoked">
+                                                Revoked
+                                            </span>
+                                        </td>
+
+                                        <td>
+                                            <span class="admin-description" ng-if="!pattern.extraData.parent">-</span>
+
+                                            <span ng-if="::pattern.extraData.parent">
+                                                <a href ng-click="$vm.show(pattern.extraData.parent.patternId)"
+                                                    class="admin-link mr-xxs">
+                                                    {{::pattern.extraData.parent.patternId}}
+                                                </a>
+
+                                                <a href
+                                                    ng-click="$vm.addFilterValue('parent', pattern.extraData.parent.patternId)"
+                                                    class="admin-link">
+                                                    <i class="fa fa-filter"></i>
+                                                </a>
+                                            </span>
+                                        </td>
+
+                                        <td>
+                                            <div ng-repeat="tactic in ::pattern.tactics" class="mb-xxs">
+                                                <span class="label label-default clickable admin-label"
+                                                    ng-click="$vm.addFilterValue('tactics', tactic)">
+                                                    {{tactic}}
+                                                </span>
+                                            </div>
+                                        </td>
+
+                                        <td class="wrap">
+                                            <div class="admin-description">
+                                                {{::pattern.description | limitTo:250}}...
+                                            </div>
+                                        </td>
+
+                                        <td class="text-right admin-actions">
+                                            <a class="btn btn-xs btn-info" href="{{::pattern.url}}" target="_blank"
+                                                uib-tooltip="Open external link">
+                                                <i class="fa fa-external-link"></i>
+                                            </a>
+
+                                            <button type="button" class="btn btn-xs btn-primary"
+                                                ng-click="$vm.show(pattern.patternId)" uib-tooltip="Show pattern">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+
+                                            <!--
+                                            <button type="button"
+                                                class="btn btn-xs btn-danger"
+                                                ng-click="$vm.remove(pattern)"
+                                                uib-tooltip="Delete pattern">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                            -->
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="admin-bottom-search">
+                            <psearch control="$vm.list"></psearch>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

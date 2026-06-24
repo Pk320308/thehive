@@ -1,0 +1,78 @@
+<div class="modal-body cynox-about-modal">
+
+    <div class="cynox-about-header text-center">
+
+        <h3 class="cynox-about-title">Cynox Platform</h3>
+        <p class="cynox-about-subtitle">
+            Application version and connector information
+        </p>
+    </div>
+
+    <div class="cynox-about-section">
+        <h4 class="cynox-about-section-title">
+            <i class="fa fa-code-fork"></i>
+            Version Information
+        </h4>
+
+        <div class="cynox-about-list">
+            <div class="row cynox-about-row" ng-repeat="(module, ver) in version">
+                <div class="col-sm-6">
+                    <strong class="cynox-about-label">{{module}}</strong>
+                </div>
+
+                <div class="col-sm-6">
+                    <span class="cynox-about-value">{{ver}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cynox-about-section" ng-if="connectors">
+        <h4 class="cynox-about-section-title">
+            <i class="fa fa-plug"></i>
+            Connectors
+        </h4>
+
+        <div class="cynox-about-list">
+            <div class="row cynox-about-row" ng-repeat="(key, connector) in connectors" ng-if="connector.enabled">
+
+                <div class="col-sm-6">
+                    <strong class="cynox-about-label">{{key | uppercase}}</strong>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="cynox-server-item" ng-repeat="server in connector.servers">
+                        <strong>{{server.name}}</strong>
+                        <span class="text-muted"> - {{server.version || 'Unknown version'}}</span>
+
+                        <span class="label cynox-status-label" ng-class="{
+                                'OK': 'label-success',
+                                'ERROR': 'label-danger',
+                                'AUTH_ERROR': 'label-danger'
+                            }[server.status]">
+                            {{server.status}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cynox-about-footer text-center">
+        <strong>
+            <a href="https://cynox-project.org" target="_blank">Cynox Project</a>
+            2016-2021,
+            <a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank">AGPL-V3</a>
+        </strong>
+    </div>
+
+</div>
+
+<div class="modal-footer cynox-about-modal-footer">
+    <div class="text-center">
+        <button type="button" class="btn btn-primary cynox-about-close-btn" ng-click="close()">
+            <i class="fa fa-times"></i>
+            Close
+        </button>
+    </div>
+</div>

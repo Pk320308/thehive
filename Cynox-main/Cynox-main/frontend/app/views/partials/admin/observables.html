@@ -1,0 +1,93 @@
+<div class="row admin-page observable-types-page">
+    <div class="col-md-12">
+        <div class="box admin-box observable-types-box">
+
+            <div class="box-header admin-header">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h3 class="box-title admin-title">
+                            <i class="fa fa-thumb-tack"></i>
+                            Observable Types Management
+                        </h3>
+                        <p class="admin-subtitle">
+                            Manage observable datatypes such as domain, IP, email and other indicators
+                        </p>
+                    </div>
+
+                    <div class="col-sm-4 text-right">
+                        <span class="label label-primary admin-count">
+                            {{$vm.dataTypeList.length || 0}} Types
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-body admin-body">
+
+                <div class="row">
+                    <div class="col-md-8">
+
+                        <div class="admin-toolbar observable-add-card">
+                            <form name="dtForm" ng-submit="$vm.addArtifactDataTypeList()">
+                                <label class="observable-form-label">
+                                    Add new datatype
+                                </label>
+
+                                <div class="input-group input-group-sm observable-input-group">
+                                    <input class="form-control" ng-model="$vm.params.newDataType"
+                                        placeholder="Specify the datatype to add. Ex: domain, ip, email" required>
+
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-primary btn-flat"
+                                            ng-disabled="dtForm.$invalid">
+                                            <i class="fa fa-plus"></i>
+                                            Add dataType
+                                        </button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="table-responsive admin-table-card">
+                            <table class="table table-hover admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <i class="fa fa-tag"></i>
+                                            dataType
+                                        </th>
+
+                                        <th width="120" class="text-right">
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr ng-repeat="datatype in $vm.dataTypeList | orderBy:'name'" class="admin-row">
+                                        <td>
+                                            <div class="admin-name">
+                                                <i class="fa fa-dot-circle-o"></i>
+                                                {{datatype.name || datatype.value}}
+                                            </div>
+                                        </td>
+
+                                        <td class="text-right admin-actions">
+                                            <button type="button" class="btn btn-xs btn-danger"
+                                                ng-click="$vm.deleteArtifactDataType(datatype)">
+                                                <i class="fa fa-trash"></i>
+                                                Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

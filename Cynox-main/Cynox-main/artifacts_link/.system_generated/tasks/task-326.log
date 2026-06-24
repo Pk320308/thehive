@@ -1,0 +1,429 @@
+bower angular-sanitize#1.7.8       not-cached https://github.com/angular/bower-angular-sanitize.git#1.7.8
+bower angular-sanitize#1.7.8          resolve https://github.com/angular/bower-angular-sanitize.git#1.7.8
+bower underscore#^1.9.1            not-cached https://github.com/jashkenas/underscore.git#^1.9.1
+bower underscore#^1.9.1               resolve https://github.com/jashkenas/underscore.git#^1.9.1
+bower angular-ui-ace#bower         not-cached https://github.com/angular-ui/ui-ace.git#bower
+bower angular-ui-ace#bower            resolve https://github.com/angular-ui/ui-ace.git#bower
+bower angular-page-loader#*        not-cached https://github.com/codekraft-studio/angular-page-loader.git#*
+bower angular-page-loader#*           resolve https://github.com/codekraft-studio/angular-page-loader.git#*
+bower angular-bootstrap-multiselect#^1.1.11           cached https://github.com/bentorfs/angular-bootstrap-multiselect.git#1.1.11
+bower angular-bootstrap-multiselect#^1.1.11         validate 1.1.11 against https://github.com/bentorfs/angular-bootstrap-multiselect.git#^1.1.11
+bower angular-animate#1.7.8                           cached https://github.com/angular/bower-angular-animate.git#1.7.8
+bower angular-animate#1.7.8                         validate 1.7.8 against https://github.com/angular/bower-angular-animate.git#1.7.8
+bower angular-bootstrap#2.5.0                         cached https://github.com/angular-ui/bootstrap-bower.git#2.5.0
+bower angular-bootstrap#2.5.0                       validate 2.5.0 against https://github.com/angular-ui/bootstrap-bower.git#2.5.0
+bower angular-cookies#1.7.8                           cached https://github.com/angular/bower-angular-cookies.git#1.7.8
+bower angular-cookies#1.7.8                         validate 1.7.8 against https://github.com/angular/bower-angular-cookies.git#1.7.8
+bower angular-moment#~0.10.3                          cached https://github.com/urish/angular-moment.git#0.10.3
+bower angular-moment#~0.10.3                        validate 0.10.3 against https://github.com/urish/angular-moment.git#~0.10.3
+bower angular#1.7.8                                   cached https://github.com/angular/bower-angular.git#1.7.8
+bower angular#1.7.8                                 validate 1.7.8 against https://github.com/angular/bower-angular.git#1.7.8
+bower angular-timer#^1.3.5                            cached https://github.com/siddii/angular-timer.git#1.3.5
+bower angular-timer#^1.3.5                          validate 1.3.5 against https://github.com/siddii/angular-timer.git#^1.3.5
+bower angular-touch#1.7.8                             cached https://github.com/angular/bower-angular-touch.git#1.7.8
+bower angular-touch#1.7.8                           validate 1.7.8 against https://github.com/angular/bower-angular-touch.git#1.7.8
+bower angular-resource#1.7.8                          cached https://github.com/angular/bower-angular-resource.git#1.7.8
+bower angular-resource#1.7.8                        validate 1.7.8 against https://github.com/angular/bower-angular-resource.git#1.7.8
+bower jquery#^3.4.1                                   cached https://github.com/jquery/jquery-dist.git#3.7.1
+bower jquery#^3.4.1                                 validate 3.7.1 against https://github.com/jquery/jquery-dist.git#^3.4.1
+bower bootstrap-sass-official#^3                      cached https://github.com/twbs/bootstrap-sass.git#3.4.3
+bower bootstrap-sass-official#^3                    validate 3.4.3 against https://github.com/twbs/bootstrap-sass.git#^3
+bower animate.css#^3.7.0                              cached https://github.com/daneden/animate.css.git#3.7.2
+bower animate.css#^3.7.0                            validate 3.7.2 against https://github.com/daneden/animate.css.git#^3.7.0
+bower bootstrap#^3                                    cached https://github.com/twbs/bootstrap.git#3.4.1
+bower bootstrap#^3                                  validate 3.4.1 against https://github.com/twbs/bootstrap.git#^3
+bower angular-ui-router#~0.4.3                        cached https://github.com/angular-ui/angular-ui-router-bower.git#0.4.3
+bower angular-ui-router#~0.4.3                      validate 0.4.3 against https://github.com/angular-ui/angular-ui-router-bower.git#~0.4.3
+bower font-awesome#^4.7.0                             cached https://github.com/FortAwesome/Font-Awesome.git#4.7.0
+bower font-awesome#^4.7.0                           validate 4.7.0 against https://github.com/FortAwesome/Font-Awesome.git#^4.7.0
+bower ng-csv#~0.3.6                                   cached https://github.com/asafdav/ng-csv.git#0.3.6
+bower ng-csv#~0.3.6                                 validate 0.3.6 against https://github.com/asafdav/ng-csv.git#~0.3.6
+bower ng-tags-input#^3.2.0                            cached https://github.com/mbenford/ngTagsInput-bower.git#3.2.0
+bower ng-tags-input#^3.2.0                          validate 3.2.0 against https://github.com/mbenford/ngTagsInput-bower.git#^3.2.0
+bower dropzone#~4.3.0                                 cached https://github.com/enyo/dropzone.git#4.3.0
+bower dropzone#~4.3.0                               validate 4.3.0 against https://github.com/enyo/dropzone.git#~4.3.0
+bower roboto-fontface#^0.10.0                         cached https://github.com/choffmeister/roboto-fontface-bower.git#0.10.0
+bower roboto-fontface#^0.10.0                       validate 0.10.0 against https://github.com/choffmeister/roboto-fontface-bower.git#^0.10.0
+bower smalot-bootstrap-datetimepicker#2.4.4           cached https://github.com/smalot/bootstrap-datetimepicker.git#2.4.4
+bower smalot-bootstrap-datetimepicker#2.4.4         validate 2.4.4 against https://github.com/smalot/bootstrap-datetimepicker.git#2.4.4
+bower c3#~0.4.11                                      cached https://github.com/masayuki0812/c3.git#0.4.24
+bower c3#~0.4.11                                    validate 0.4.24 against https://github.com/masayuki0812/c3.git#~0.4.11
+bower moment#^2.24.0                                  cached https://github.com/moment/moment.git#2.30.1
+bower moment#^2.24.0                                validate 2.30.1 against https://github.com/moment/moment.git#^2.24.0
+bower angular-messages#1.7.8                          cached https://github.com/angular/bower-angular-messages.git#1.7.8
+bower angular-messages#1.7.8                        validate 1.7.8 against https://github.com/angular/bower-angular-messages.git#1.7.8
+bower cryptojslib#~3.1.2                              cached https://github.com/sytelus/CryptoJS.git#3.1.2
+bower cryptojslib#~3.1.2                            validate 3.1.2 against https://github.com/sytelus/CryptoJS.git#~3.1.2
+bower css-spaces#~0.3.5                               cached https://github.com/badabam/css-spaces.git#0.3.5
+bower css-spaces#~0.3.5                             validate 0.3.5 against https://github.com/badabam/css-spaces.git#~0.3.5
+bower angular-ui-notification#0.3.6                   cached https://github.com/alexcrack/angular-ui-notification.git#0.3.6
+bower angular-ui-notification#0.3.6                 validate 0.3.6 against https://github.com/alexcrack/angular-ui-notification.git#0.3.6
+bower ng-file-upload#^12.2.13                         cached https://github.com/danialfarid/angular-file-upload-bower.git#12.2.13
+bower ng-file-upload#^12.2.13                       validate 12.2.13 against https://github.com/danialfarid/angular-file-upload-bower.git#^12.2.13
+bower ng-file-upload-shim#^12.2.13                    cached https://github.com/danialfarid/angular-file-upload-shim-bower.git#12.2.13
+bower ng-file-upload-shim#^12.2.13                  validate 12.2.13 against https://github.com/danialfarid/angular-file-upload-shim-bower.git#^12.2.13
+bower angular-clipboard#^1.7.0                        cached https://github.com/omichelsen/angular-clipboard.git#1.7.0
+bower angular-clipboard#^1.7.0                      validate 1.7.0 against https://github.com/omichelsen/angular-clipboard.git#^1.7.0
+bower angular-highlightjs#^0.7.1                      cached https://github.com/pc035860/angular-highlightjs.git#0.7.1
+bower angular-highlightjs#^0.7.1                    validate 0.7.1 against https://github.com/pc035860/angular-highlightjs.git#^0.7.1
+bower highlight.js.origin#^9.15.6                     cached https://github.com/isagalaev/highlight.js.git#9.18.5
+bower highlight.js.origin#^9.15.6                   validate 9.18.5 against https://github.com/isagalaev/highlight.js.git#^9.15.6
+bower angular-images-resizer#^2.0.3                   cached https://github.com/FBerthelot/angular-images-resizer.git#2.0.3
+bower angular-images-resizer#^2.0.3                 validate 2.0.3 against https://github.com/FBerthelot/angular-images-resizer.git#^2.0.3
+bower es6-shim#^0.35.5                                cached https://github.com/paulmillr/es6-shim.git#0.35.8
+bower es6-shim#^0.35.5                              validate 0.35.8 against https://github.com/paulmillr/es6-shim.git#^0.35.5
+bower angular-markdown-editor-ghiscoding#1.1.5        cached https://github.com/ghiscoding/angular-markdown-editor.git#1.1.5
+bower angular-markdown-editor-ghiscoding#1.1.5      validate 1.1.5 against https://github.com/ghiscoding/angular-markdown-editor.git#1.1.5
+bower es5-shim#^4.5.13                                cached https://github.com/es-shims/es5-shim.git#4.6.7
+bower es5-shim#^4.5.13                              validate 4.6.7 against https://github.com/es-shims/es5-shim.git#^4.5.13
+bower angular-base64-upload#^0.1.19                   cached https://github.com/adonespitogo/angular-base64-upload.git#0.1.23
+bower angular-base64-upload#^0.1.19                 validate 0.1.23 against https://github.com/adonespitogo/angular-base64-upload.git#^0.1.19
+bower angular-scroll#^1.0.2                           cached https://github.com/oblador/angular-scroll.git#1.0.2
+bower angular-scroll#^1.0.2                         validate 1.0.2 against https://github.com/oblador/angular-scroll.git#^1.0.2
+bower angular-ui-sortable#^0.19.0                     cached https://github.com/angular-ui/ui-sortable.git#0.19.0
+bower angular-ui-sortable#^0.19.0                   validate 0.19.0 against https://github.com/angular-ui/ui-sortable.git#^0.19.0
+bower js-base64#^2.5.1                                cached https://github.com/dankogai/js-base64.git#2.6.4
+bower js-base64#^2.5.1                              validate 2.6.4 against https://github.com/dankogai/js-base64.git#^2.5.1
+bower angular-bootstrap-colorpicker#^3.0.32           cached https://github.com/buberdds/angular-bootstrap-colorpicker.git#3.0.32
+bower angular-bootstrap-colorpicker#^3.0.32         validate 3.0.32 against https://github.com/buberdds/angular-bootstrap-colorpicker.git#^3.0.32
+bower angular-drag-and-drop-lists#^2.1.0              cached https://github.com/marceljuenemann/angular-drag-and-drop-lists.git#2.1.0
+bower angular-drag-and-drop-lists#^2.1.0            validate 2.1.0 against https://github.com/marceljuenemann/angular-drag-and-drop-lists.git#^2.1.0
+bower angular-local-storage#^0.7.1                    cached https://github.com/grevory/angular-local-storage.git#0.7.1
+bower angular-local-storage#^0.7.1                  validate 0.7.1 against https://github.com/grevory/angular-local-storage.git#^0.7.1
+bower file-saver#1.3.4                                cached https://github.com/eligrey/FileSaver.js.git#1.3.4
+bower file-saver#1.3.4                              validate 1.3.4 against https://github.com/eligrey/FileSaver.js.git#1.3.4
+bower bootstrap-sass#^3.4.1                           cached https://github.com/twbs/bootstrap-sass.git#3.4.3
+bower bootstrap-sass#^3.4.1                         validate 3.4.3 against https://github.com/twbs/bootstrap-sass.git#^3.4.1
+bower underscore.string#^3.3.5                        cached https://github.com/epeli/underscore.string.git#3.3.6
+bower underscore.string#^3.3.5                      validate 3.3.6 against https://github.com/epeli/underscore.string.git#^3.3.5
+bower qrcode.js#^1.0.2                                cached https://github.com/janantala/qrcode.js.git#1.0.2
+bower qrcode.js#^1.0.2                              validate 1.0.2 against https://github.com/janantala/qrcode.js.git#^1.0.2
+bower angular-qr#^0.2.0                               cached https://github.com/janantala/angular-qr.git#0.2.0
+bower angular-qr#^0.2.0                             validate 0.2.0 against https://github.com/janantala/angular-qr.git#^0.2.0
+bower js-url#~2.5.3                                   cached https://github.com/websanova/js-url.git#2.5.3
+bower js-url#~2.5.3                                 validate 2.5.3 against https://github.com/websanova/js-url.git#~2.5.3
+bower angular-mocks#1.7.8                             cached https://github.com/angular/bower-angular-mocks.git#1.7.8
+bower angular-mocks#1.7.8                           validate 1.7.8 against https://github.com/angular/bower-angular-mocks.git#1.7.8
+bower underscore#^1.9.1                             download https://github.com/jashkenas/underscore/archive/1.13.8.tar.gz
+(node:19632) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+bower angular-ui-ace#bower                          download https://github.com/angular-ui/ui-ace/archive/bower.tar.gz
+bower angular-page-loader#*                         download https://github.com/codekraft-studio/angular-page-loader/archive/master.tar.gz
+bower angular-sanitize#1.7.8                        download https://github.com/angular/bower-angular-sanitize/archive/v1.7.8.tar.gz
+bower angular-page-loader#*                          extract archive.tar.gz
+bower angular-ui-ace#bower                           extract archive.tar.gz
+bower moment#>=2.8.0 <2.11.0                          cached https://github.com/moment/moment.git#2.10.6
+bower moment#>=2.8.0 <2.11.0                        validate 2.10.6 against https://github.com/moment/moment.git#>=2.8.0 <2.11.0
+bower angular#>=1.2.0 <1.5.0                          cached https://github.com/angular/bower-angular.git#1.4.14
+bower angular#>=1.2.0 <1.5.0                        validate 1.4.14 against https://github.com/angular/bower-angular.git#>=1.2.0 <1.5.0
+bower angular-ui-ace#bower                          resolved https://github.com/angular-ui/ui-ace.git#36844ff7c0
+bower ace-builds#^1                                   cached https://github.com/ajaxorg/ace-builds.git#1.44.0
+bower ace-builds#^1                                 validate 1.44.0 against https://github.com/ajaxorg/ace-builds.git#^1
+bower angular-sanitize#1.7.8                         extract archive.tar.gz
+bower underscore#^1.9.1                              extract archive.tar.gz
+bower angular-page-loader#*                         resolved https://github.com/codekraft-studio/angular-page-loader.git#0457468665
+bower angular-sanitize#1.7.8                        resolved https://github.com/angular/bower-angular-sanitize.git#1.7.8
+bower moment#~2.9.0                                   cached https://github.com/moment/moment.git#2.9.0
+bower moment#~2.9.0                                 validate 2.9.0 against https://github.com/moment/moment.git#~2.9.0
+bower humanize-duration#~3.10.0                       cached https://github.com/EvanHahn/HumanizeDuration.js.git#3.10.1
+bower humanize-duration#~3.10.0                     validate 3.10.1 against https://github.com/EvanHahn/HumanizeDuration.js.git#~3.10.0
+bower d3#~3.5.0                                       cached https://github.com/mbostock-bower/d3-bower.git#3.5.17
+bower d3#~3.5.0                                     validate 3.5.17 against https://github.com/mbostock-bower/d3-bower.git#~3.5.0
+bower underscore#^1.9.1                             resolved https://github.com/jashkenas/underscore.git#1.13.8
+bower angular-highlightjs#^0.6.1                      cached https://github.com/pc035860/angular-highlightjs.git#0.6.3
+bower angular-highlightjs#^0.6.1                    validate 0.6.3 against https://github.com/pc035860/angular-highlightjs.git#^0.6.1
+bower jquery#^2.2.4                                   cached https://github.com/jquery/jquery-dist.git#2.2.4
+bower jquery#^2.2.4                                 validate 2.2.4 against https://github.com/jquery/jquery-dist.git#^2.2.4
+bower marked#^0.3.5                                   cached https://github.com/chjj/marked.git#0.3.19
+bower marked#^0.3.5                                 validate 0.3.19 against https://github.com/chjj/marked.git#^0.3.5
+bower angular-marked#^1.2.2                           cached https://github.com/Hypercubed/angular-marked.git#1.2.2
+bower angular-marked#^1.2.2                         validate 1.2.2 against https://github.com/Hypercubed/angular-marked.git#^1.2.2
+bower bootstrap-markdown#^2.10.0                      cached https://github.com/toopay/bootstrap-markdown.git#2.10.0
+bower bootstrap-markdown#^2.10.0                    validate 2.10.0 against https://github.com/toopay/bootstrap-markdown.git#^2.10.0
+bower jquery-ui#>=1.12.x                              cached https://github.com/components/jqueryui.git#1.12.1
+bower jquery-ui#>=1.12.x                            validate 1.12.1 against https://github.com/components/jqueryui.git#>=1.12.x
+bower qrcode#~1.0.x                                   cached https://github.com/janantala/qrcode.js.git#1.0.2
+bower qrcode#~1.0.x                                 validate 1.0.2 against https://github.com/janantala/qrcode.js.git#~1.0.x
+bower angular#~1.2.5                                  cached https://github.com/angular/bower-angular.git#1.2.32
+bower angular#~1.2.5                                validate 1.2.32 against https://github.com/angular/bower-angular.git#~1.2.5
+
+Please note that,
+    angular-qr#0.2.0 depends on angular#~1.2.5 which resolved to angular#1.2.32
+    angular-bootstrap-multiselect#1.1.11, ng-tags-input#3.2.0 depends on angular#>=1.3.0 which resolved to angular#1.4.14
+    ng-file-upload#12.2.13, ng-file-upload-shim#12.2.13 depends on angular#>1.2.0 which resolved to angular#1.4.14
+    angular-highlightjs#0.7.1, angular-highlightjs#0.6.3 depends on angular#^1.0.1 which resolved to angular#1.4.14
+    angular-moment#0.10.3 depends on angular#>=1.2.0 <1.5.0 which resolved to angular#1.4.14
+    angular-bootstrap#2.5.0 depends on angular#>=1.4.0 which resolved to angular#1.4.14
+    angular-ui-ace#36844ff7c0 depends on angular#~1.x which resolved to angular#1.4.14
+    angular-timer#1.3.5 depends on angular#>= 1.0.7 which resolved to angular#1.4.14
+    angular-ui-router#0.4.3 depends on angular#^1.0.8 which resolved to angular#1.4.14
+    ng-csv#0.3.6 depends on angular#~1 which resolved to angular#1.4.14
+    angular-images-resizer#2.0.3 depends on angular#1.x.x which resolved to angular#1.4.14
+    angular-scroll#1.0.2 depends on angular#^1.2.16 which resolved to angular#1.4.14
+    angular-ui-sortable#0.19.0 depends on angular#>=1.2.x which resolved to angular#1.4.14
+    angular-local-storage#0.7.1 depends on angular#^1.x which resolved to angular#1.4.14
+    angular-marked#1.2.2 depends on angular#>= 1.3.0 which resolved to angular#1.4.14
+    angular-clipboard#1.7.0 depends on angular#* which resolved to angular#1.4.14
+    angular-animate#1.7.8, angular-cookies#1.7.8, angular-messages#1.7.8, angular-mocks#1.7.8, angular-resource#1.7.8, angular-sanitize#1.7.8, angular-touch#1.7.8, cynox depends on angular#1.7.8 which resolved to angular#1.7.8
+    angular-ui-notification#0.3.6 depends on angular#^1.5.x which resolved to angular#1.7.8
+Resort to using angular#1.7.8 which resolved to angular#1.7.8
+Code incompatibilities may occur.
+
+
+Please note that,
+    angular-markdown-editor-ghiscoding#1.1.5 depends on jquery#^2.2.4 which resolved to jquery#2.2.4
+    bootstrap#3.4.1, bootstrap-sass#3.4.3, bootstrap-sass-official#3.4.3 depends on jquery#1.9.1 - 3 which resolved to jquery#3.7.1
+    cynox depends on jquery#^3.4.1 which resolved to jquery#3.7.1
+    angular-ui-sortable#0.19.0 depends on jquery#>=3.1.x which resolved to jquery#3.7.1
+    jquery-ui#1.12.1 depends on jquery#>=1.6 which resolved to jquery#3.7.1
+Resort to using jquery#^3.4.1 which resolved to jquery#3.7.1
+Code incompatibilities may occur.
+
+
+Please note that,
+    angular-timer#1.3.5 depends on moment#~2.9.0 which resolved to moment#2.9.0
+    angular-moment#0.10.3 depends on moment#>=2.8.0 <2.11.0 which resolved to moment#2.10.6
+    cynox depends on moment#^2.24.0 which resolved to moment#2.30.1
+Resort to using moment#^2.24.0 which resolved to moment#2.30.1
+Code incompatibilities may occur.
+
+
+Please note that,
+    angular-markdown-editor-ghiscoding#1.1.5 depends on angular-highlightjs#^0.6.1 which resolved to angular-highlightjs#0.6.3
+    cynox depends on angular-highlightjs#^0.7.1 which resolved to angular-highlightjs#0.7.1
+Resort to using angular-highlightjs#^0.7.1 which resolved to angular-highlightjs#0.7.1
+Code incompatibilities may occur.
+
+bower angular-bootstrap-multiselect#^1.1.11          install angular-bootstrap-multiselect#1.1.11
+bower angular-bootstrap#2.5.0                        install angular-bootstrap#2.5.0
+bower angular-moment#~0.10.3                         install angular-moment#0.10.3
+bower angular-ui-ace#bower                           install angular-ui-ace#36844ff7c0
+bower angular-animate#1.7.8                          install angular-animate#1.7.8
+bower angular-cookies#1.7.8                          install angular-cookies#1.7.8
+bower angular-page-loader#*                          install angular-page-loader#0457468665
+bower angular-sanitize#1.7.8                         install angular-sanitize#1.7.8
+bower angular#1.7.8                                  install angular#1.7.8
+bower angular-timer#^1.3.5                           install angular-timer#1.3.5
+bower jquery#1.9.1 - 3                               install jquery#3.7.1
+bower angular-touch#1.7.8                            install angular-touch#1.7.8
+bower angular-resource#1.7.8                         install angular-resource#1.7.8
+bower bootstrap-sass#^3.4.1                          install bootstrap-sass#3.4.3
+bower bootstrap-sass-official#^3                     install bootstrap-sass-official#3.4.3
+bower animate.css#^3.7.0                             install animate.css#3.7.2
+bower bootstrap#^3                                   install bootstrap#3.4.1
+bower angular-ui-router#~0.4.3                       install angular-ui-router#0.4.3
+bower font-awesome#^4.7.0                            install font-awesome#4.7.0
+bower ng-csv#~0.3.6                                  install ng-csv#0.3.6
+bower ng-tags-input#^3.2.0                           install ng-tags-input#3.2.0
+bower roboto-fontface#^0.10.0                        install roboto-fontface#0.10.0
+bower dropzone#~4.3.0                                install dropzone#4.3.0
+bower smalot-bootstrap-datetimepicker#2.4.4          install smalot-bootstrap-datetimepicker#2.4.4
+bower c3#~0.4.11                                     install c3#0.4.24
+bower moment#^2.24.0                                 install moment#2.30.1
+bower underscore#^1.9.1                              install underscore#1.13.8
+bower css-spaces#~0.3.5                              install css-spaces#0.3.5
+bower cryptojslib#~3.1.2                             install cryptojslib#3.1.2
+bower angular-messages#1.7.8                         install angular-messages#1.7.8
+bower angular-ui-notification#0.3.6                  install angular-ui-notification#0.3.6
+bower ng-file-upload#^12.2.13                        install ng-file-upload#12.2.13
+bower ng-file-upload-shim#^12.2.13                   install ng-file-upload-shim#12.2.13
+bower angular-clipboard#^1.7.0                       install angular-clipboard#1.7.0
+bower angular-highlightjs#^0.7.1                     install angular-highlightjs#0.7.1
+bower highlight.js.origin#^9.15.6                    install highlight.js.origin#9.18.5
+bower angular-images-resizer#^2.0.3                  install angular-images-resizer#2.0.3
+bower es6-shim#^0.35.5                               install es6-shim#0.35.8
+bower angular-markdown-editor-ghiscoding#1.1.5       install angular-markdown-editor-ghiscoding#1.1.5
+bower es5-shim#^4.5.13                               install es5-shim#4.6.7
+bower angular-base64-upload#^0.1.19                  install angular-base64-upload#0.1.23
+bower angular-scroll#^1.0.2                          install angular-scroll#1.0.2
+bower angular-ui-sortable#^0.19.0                    install angular-ui-sortable#0.19.0
+bower angular-bootstrap-colorpicker#^3.0.32          install angular-bootstrap-colorpicker#3.0.32
+bower js-base64#^2.5.1                               install js-base64#2.6.4
+bower angular-drag-and-drop-lists#^2.1.0             install angular-drag-and-drop-lists#2.1.0
+bower angular-local-storage#^0.7.1                   install angular-local-storage#0.7.1
+bower underscore.string#^3.3.5                       install underscore.string#3.3.6
+bower qrcode.js#^1.0.2                               install qrcode.js#1.0.2
+bower angular-qr#^0.2.0                              install angular-qr#0.2.0
+bower js-url#~2.5.3                                  install js-url#2.5.3
+bower file-saver#1.3.4                               install file-saver#1.3.4
+bower qrcode#~1.0.x                                  install qrcode#1.0.2
+bower humanize-duration#~3.10.0                      install humanize-duration#3.10.1
+bower ace-builds#^1                                  install ace-builds#1.44.0
+bower marked#^0.3.5                                  install marked#0.3.19
+bower d3#~3.5.0                                      install d3#3.5.17
+bower angular-mocks#1.7.8                            install angular-mocks#1.7.8
+bower angular-marked#^1.2.2                          install angular-marked#1.2.2
+bower bootstrap-markdown#^2.10.0                     install bootstrap-markdown#2.10.0
+bower jquery-ui#>=1.12.x                             install jquery-ui#1.12.1
+
+angular-bootstrap-multiselect#1.1.11 bower_components\angular-bootstrap-multiselect
+└── angular#1.7.8
+
+angular-bootstrap#2.5.0 bower_components\angular-bootstrap
+└── angular#1.7.8
+
+angular-moment#0.10.3 bower_components\angular-moment
+├── angular#1.7.8
+└── moment#2.30.1
+
+angular-ui-ace#36844ff7c0 bower_components\angular-ui-ace
+├── ace-builds#1.44.0
+└── angular#1.7.8
+
+angular-animate#1.7.8 bower_components\angular-animate
+└── angular#1.7.8
+
+angular-cookies#1.7.8 bower_components\angular-cookies
+└── angular#1.7.8
+
+angular-page-loader#0457468665 bower_components\angular-page-loader
+
+angular-sanitize#1.7.8 bower_components\angular-sanitize
+└── angular#1.7.8
+
+angular#1.7.8 bower_components\angular
+
+angular-timer#1.3.5 bower_components\angular-timer
+├── angular#1.7.8
+├── humanize-duration#3.10.1
+└── moment#2.30.1
+
+jquery#3.7.1 bower_components\jquery
+
+angular-touch#1.7.8 bower_components\angular-touch
+└── angular#1.7.8
+
+angular-resource#1.7.8 bower_components\angular-resource
+└── angular#1.7.8
+
+bootstrap-sass#3.4.3 bower_components\bootstrap-sass
+└── jquery#3.7.1
+
+bootstrap-sass-official#3.4.3 bower_components\bootstrap-sass-official
+└── jquery#3.7.1
+
+animate.css#3.7.2 bower_components\animate.css
+
+bootstrap#3.4.1 bower_components\bootstrap
+└── jquery#3.7.1
+
+angular-ui-router#0.4.3 bower_components\angular-ui-router
+└── angular#1.7.8
+
+font-awesome#4.7.0 bower_components\font-awesome
+
+ng-csv#0.3.6 bower_components\ng-csv
+├── angular#1.7.8
+└── angular-sanitize#1.7.8
+
+ng-tags-input#3.2.0 bower_components\ng-tags-input
+└── angular#1.7.8
+
+roboto-fontface#0.10.0 bower_components\roboto-fontface
+
+dropzone#4.3.0 bower_components\dropzone
+
+smalot-bootstrap-datetimepicker#2.4.4 bower_components\smalot-bootstrap-datetimepicker
+
+c3#0.4.24 bower_components\c3
+└── d3#3.5.17
+
+moment#2.30.1 bower_components\moment
+
+underscore#1.13.8 bower_components\underscore
+
+css-spaces#0.3.5 bower_components\css-spaces
+
+cryptojslib#3.1.2 bower_components\cryptojslib
+
+angular-messages#1.7.8 bower_components\angular-messages
+└── angular#1.7.8
+
+angular-ui-notification#0.3.6 bower_components\angular-ui-notification
+└── angular#1.7.8
+
+ng-file-upload#12.2.13 bower_components\ng-file-upload
+└── angular#1.7.8
+
+ng-file-upload-shim#12.2.13 bower_components\ng-file-upload-shim
+├── angular#1.7.8
+└── ng-file-upload#12.2.13
+
+angular-clipboard#1.7.0 bower_components\angular-clipboard
+└── angular#1.7.8
+
+angular-highlightjs#0.7.1 bower_components\angular-highlightjs
+└── angular#1.7.8
+
+highlight.js.origin#9.18.5 bower_components\highlight.js.origin
+
+angular-images-resizer#2.0.3 bower_components\angular-images-resizer
+└── angular#1.7.8
+
+es6-shim#0.35.8 bower_components\es6-shim
+
+angular-markdown-editor-ghiscoding#1.1.5 bower_components\angular-markdown-editor-ghiscoding
+├── angular-highlightjs#0.7.1
+├── angular-marked#1.2.2
+├── angular-sanitize#1.7.8
+├── bootstrap#3.4.1
+├── bootstrap-markdown#2.10.0
+├── highlight.js.origin#9.18.5
+├── jquery#3.7.1
+└── marked#0.3.19
+
+es5-shim#4.6.7 bower_components\es5-shim
+
+angular-base64-upload#0.1.23 bower_components\angular-base64-upload
+
+angular-scroll#1.0.2 bower_components\angular-scroll
+└── angular#1.7.8
+
+angular-ui-sortable#0.19.0 bower_components\angular-ui-sortable
+├── angular#1.7.8
+├── jquery#3.7.1
+└── jquery-ui#1.12.1
+
+angular-bootstrap-colorpicker#3.0.32 bower_components\angular-bootstrap-colorpicker
+
+js-base64#2.6.4 bower_components\js-base64
+
+angular-drag-and-drop-lists#2.1.0 bower_components\angular-drag-and-drop-lists
+
+angular-local-storage#0.7.1 bower_components\angular-local-storage
+└── angular#1.7.8
+
+underscore.string#3.3.6 bower_components\underscore.string
+
+qrcode.js#1.0.2 bower_components\qrcode.js
+
+angular-qr#0.2.0 bower_components\angular-qr
+├── angular#1.7.8
+└── qrcode#1.0.2
+
+js-url#2.5.3 bower_components\js-url
+
+file-saver#1.3.4 bower_components\file-saver
+
+qrcode#1.0.2 bower_components\qrcode
+
+humanize-duration#3.10.1 bower_components\humanize-duration
+
+ace-builds#1.44.0 bower_components\ace-builds
+
+marked#0.3.19 bower_components\marked
+
+d3#3.5.17 bower_components\d3
+
+angular-mocks#1.7.8 bower_components\angular-mocks
+└── angular#1.7.8
+
+angular-marked#1.2.2 bower_components\angular-marked
+├── angular#1.7.8
+└── marked#0.3.19
+
+bootstrap-markdown#2.10.0 bower_components\bootstrap-markdown
+└── bootstrap#3.4.1
+
+jquery-ui#1.12.1 bower_components\jquery-ui
+└── jquery#3.7.1

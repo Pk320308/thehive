@@ -1,0 +1,18 @@
+# Chown definitions created by SBT Native Packager
+
+# Generate secret key
+if ! test -e /etc/cynox/secret.conf; then
+  key=$(dd if=/dev/urandom bs=1024 count=1 | tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1)
+  echo "play.http.secret.key=\"$key\"" > /etc/cynox/secret.conf
+fi
+
+chown root:cynox /etc/cynox/application.conf /etc/cynox/logback.xml /etc/cynox/secret.conf
+chmod 0640 /etc/cynox/application.conf /etc/cynox/logback.xml /etc/cynox/secret.conf
+if test -x /bin/systemctl; then
+ 	/bin/systemctl daemon-reload || /bin/true
+ fi
+
+mkdir -p /var/log/cynox /opt/thp/cynox/index /opt/thp/cynox/database /opt/thp/cynox/files
+touch /var/log/cynox/application.log
+chown -R cynox:cynox /var/log/cynox /opt/thp/cynox/index /opt/thp/cynox/database /opt/thp/cynox/files
+

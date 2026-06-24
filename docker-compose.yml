@@ -1,0 +1,60 @@
+services:
+  elasticsearch:
+    image: elasticsearch:7.17.9
+    container_name: cynox-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - cluster.name=cynox
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    restart: unless-stopped
+
+  cassandra:
+    image: cassandra:3.11.10
+    container_name: cynox-cassandra
+    environment:
+      - CASSANDRA_CLUSTER_NAME=thp
+    ports:
+      - "9042:9042"
+    volumes:
+      - cassandra_data:/var/lib/cassandra
+    restart: unless-stopped
+
+  cynox:
+    image: thehiveproject/thehive4:4.1.24-1
+    container_name: cynox
+    depends_on:
+      - cassandra
+      - elasticsearch
+    entrypoint: ["sh", "-c", "rm -f /opt/thp/thehive/RUNNING_PID /opt/thehive/RUNNING_PID && /opt/thehive/entrypoint"]
+    volumes:
+      - ./Cynox-main/Cynox-main/conf/application.conf:/etc/thehive/application.conf
+      - ./Cynox-main/Cynox-main/conf/secret.conf:/etc/thehive/secret.conf
+      - cynox_data:/opt/thp/thehive/files
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    container_name: cynox-nginx
+    depends_on:
+      - cynox
+    ports:
+      - "9001:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./Cynox-main/Cynox-main/frontend/dist:/usr/share/nginx/html:ro
+      - ./Cynox-main/Cynox-main/frontend/app/50x.html:/usr/share/nginx/html/50x.html:ro
+    restart: unless-stopped
+
+volumes:
+  elasticsearch_data:
+  cassandra_data:
+  cynox_data:

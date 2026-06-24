@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_OTHER",
+  "summary":  "Python script to scan index.html, check all Bower components against their unpkg/CDN redirect destinations, and detect broken links.",
+  "updatedAt":  "2026-05-27T11:32:56.568067300Z"
+}

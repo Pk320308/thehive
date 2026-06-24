@@ -1,0 +1,5 @@
+[info] play.api.Play [|] Application started (Prod) (no global state)
+[info] o.t.t.s.IntegrityCheck [|] Integrity checks is enabled and will start at Sun May 31 02:30:00 UTC 2026
+[info] a.c.s.ClusterSingletonProxy [|] Singleton identified at [akka://application/system/singletonManagerIntegrityCheckActor/IntegrityCheckActor]
+[info] p.c.s.AkkaHttpServer [|] Listening for HTTP on /0:0:0:0:0:0:0:0:9000
+[info] a.c.s.ClusterSingletonProxy [|] Singleton identified at [akka://application/user/flowSingletonManager/singleton]

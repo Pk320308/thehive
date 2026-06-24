@@ -1,0 +1,122 @@
+<form class="form-horizontal cynox-org-modal cynox-profile-modal" name="profileForm" ng-submit="$modal.ok()" novalidate>
+
+    <div class="modal-header cynox-org-modal-header">
+        <button type="button" class="close cynox-org-modal-close" ng-click="$modal.cancel()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <div class="cynox-org-modal-icon">
+            <i class="fa fa-users"></i>
+        </div>
+
+        <div>
+            <h3 class="modal-title cynox-org-modal-title">
+                {{$modal.isEdit ? 'Update' : 'Add'}} Profile
+            </h3>
+            <p class="cynox-org-modal-subtitle">
+                Manage profile type and permissions
+            </p>
+        </div>
+    </div>
+
+    <div class="modal-body cynox-org-modal-body">
+
+        <div class="cynox-org-info-box">
+            <i class="fa fa-info-circle"></i>
+            <span>
+                Select profile type and assign required permissions. Fields marked with
+                <i class="fa fa-asterisk text-danger"></i>
+                are required.
+            </span>
+        </div>
+
+        <div class="form-group cynox-org-form-group">
+            <label class="col-sm-3 control-label cynox-org-label">
+                Profile type
+                <i class="fa fa-asterisk text-danger"></i>
+            </label>
+
+            <div class="col-sm-9">
+                <div class="btn-group cynox-profile-type-group">
+                    <label class="btn btn-primary" ng-model="$modal.formData.isAdmin" uib-btn-radio="true">
+                        <i class="fa fa-cog"></i>
+                        Administration Profile
+                    </label>
+
+                    <label class="btn btn-primary" ng-model="$modal.formData.isAdmin" uib-btn-radio="false">
+                        <i class="fa fa-building-o"></i>
+                        Organisation Profile
+                    </label>
+                </div>
+
+                <p class="help-block cynox-profile-hint">
+                    {{$modal.permissions[$modal.formData.isAdmin ? 'admin' : 'org'].hints}}
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group cynox-org-form-group"
+            ng-class="{ 'has-error': profileForm.name.$touched && profileForm.name.$invalid }">
+
+            <label class="col-sm-3 control-label cynox-org-label">
+                Name
+                <i class="fa fa-asterisk text-danger"></i>
+            </label>
+
+            <div class="col-sm-9">
+                <div class="input-group cynox-org-input-group">
+                    <span class="input-group-addon">
+                        <i class="fa fa-id-badge"></i>
+                    </span>
+
+                    <input class="form-control cynox-org-input" name="name" ng-disabled="$modal.isEdit"
+                        ng-model="$modal.formData.name" required type="text" placeholder="Profile name">
+                </div>
+
+                <p class="help-block" ng-if="profileForm.name.$touched && profileForm.name.$invalid">
+                    Profile name is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group cynox-org-form-group">
+            <label class="col-sm-3 control-label cynox-org-label">
+                Permissions
+                <i class="fa fa-asterisk text-danger"></i>
+            </label>
+
+            <div class="col-sm-9">
+                <select class="form-control cynox-profile-permissions" ng-model="$modal.formData.permissions"
+                    ng-options="permission as ($modal.permissions[$modal.formData.isAdmin ? 'admin' : 'org'].labels[permission]) for permission in $modal.permissions[$modal.formData.isAdmin ? 'admin' : 'org'].keys"
+                    multiple size="15">
+                </select>
+
+                <div class="cynox-profile-selected">
+                    <i class="fa fa-check-circle"></i>
+                    Selected Permissions:
+                    <span class="label label-primary">
+                        {{$modal.formData.permissions.length || 0}}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal-footer cynox-org-modal-footer">
+        <button class="btn cynox-org-cancel-btn pull-left" ng-click="$modal.cancel()" type="button">
+            <i class="fa fa-times"></i>
+            Cancel
+        </button>
+
+        <span class="cynox-org-required-text pull-left">
+            <i class="fa fa-asterisk text-danger"></i>
+            Required field
+        </span>
+
+        <button class="btn cynox-org-save-btn pull-right" ng-disabled="profileForm.$invalid" type="submit">
+            <i class="fa fa-save"></i>
+            Save Profile
+        </button>
+    </div>
+</form>

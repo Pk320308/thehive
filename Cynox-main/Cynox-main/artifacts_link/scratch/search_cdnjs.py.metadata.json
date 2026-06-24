@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_OTHER",
+  "summary":  "Python script to search cdnjs API for bootstrap-datetimepicker and angular-images-resizer libraries and locate working files.",
+  "updatedAt":  "2026-05-27T11:35:54.362622700Z"
+}

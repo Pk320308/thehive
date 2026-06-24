@@ -1,0 +1,60 @@
+[
+  {
+    "id": "certuser",
+    "login": "certuser@cynox.local",
+    "name": "certuser",
+    "locked": false,
+    "password": "*random*seed*,d57cb64654764ab43edfc76a0a84e4e2fda867e761ab5a82859b00ad8412b2a1"
+  },
+  {
+    "id": "socuser",
+    "login": "socuser@cynox.local",
+    "name": "socuser",
+    "locked": false
+  },
+  {
+    "id": "puguser",
+    "login": "puguser@cynox.local",
+    "name": "puguser",
+    "locked": false
+  },
+  {
+    "id": "certadmin",
+    "login": "certadmin@cynox.local",
+    "name": "certadmin",
+    "locked": false
+  },
+  {
+    "id": "socadmin",
+    "login": "socadmin@cynox.local",
+    "name": "socadmin",
+    "locked": false
+  },
+  {
+    "id": "pugadmin",
+    "login": "pugadmin@cynox.local",
+    "name": "pugadmin",
+    "locked": false
+  },
+  {
+    "id": "certro",
+    "login": "certro@cynox.local",
+    "name": "certro",
+    "locked": true,
+    "apikey": "azertyazerty"
+  },
+  {
+    "id": "socro",
+    "login": "socro@cynox.local",
+    "name": "socro",
+    "locked": false,
+    "password": "*random*seed*,d57cb64654764ab43edfc76a0a84e4e2fda867e761ab5a82859b00ad8412b2a1"
+  },
+  {
+    "id": "pugro",
+    "login": "pugro@cynox.local",
+    "name": "pugro",
+    "locked": false,
+    "password": "*random*seed*,d57cb64654764ab43edfc76a0a84e4e2fda867e761ab5a82859b00ad8412b2a1"
+  }
+]

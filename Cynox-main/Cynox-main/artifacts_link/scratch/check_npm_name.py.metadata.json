@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_OTHER",
+  "summary":  "Query package.json for angular-images-resizer and angular-image-resizer on unpkg to find the correct package name and entry point.",
+  "updatedAt":  "2026-05-27T11:44:53.828516500Z"
+}

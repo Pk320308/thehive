@@ -1,0 +1,5 @@
+{
+  "artifactType":  "ARTIFACT_TYPE_OTHER",
+  "summary":  "Updated Python HTTP server script with corrected unpkg, jsDelivr, and cdnjs paths for the AngularJS original frontend preview.",
+  "updatedAt":  "2026-05-27T11:45:23.981952400Z"
+}

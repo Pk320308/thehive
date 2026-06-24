@@ -1,0 +1,168 @@
+<div class="row admin-page custom-fields-page">
+    <div class="col-md-12">
+        <div class="box admin-box">
+
+            <div class="box-header admin-header">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h3 class="box-title admin-title">
+                            <i class="fa fa-edit"></i>
+                            Case Custom Fields
+                        </h3>
+                        <p class="admin-subtitle">
+                            Manage custom fields used in case forms
+                        </p>
+                    </div>
+
+                    <div class="col-sm-4 text-right">
+                        <span class="label label-primary admin-count">
+                            {{$vm.customFields.length}} Fields
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-body admin-body">
+
+                <div class="admin-toolbar clearfix">
+                    <button class="btn btn-sm btn-primary pull-right" type="button" ng-click="$vm.showFieldDialog({})">
+                        <i class="fa fa-plus"></i>
+                        Add Custom Field
+                    </button>
+                </div>
+
+                <div class="row mt-xs">
+                    <div class="col-md-12" ng-if="$vm.customFields.length === 0">
+                        <div class="admin-empty">
+                            <i class="fa fa-info-circle"></i>
+                            No custom fields defined yet
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" ng-if="$vm.customFields.length !== 0">
+                        <div class="table-responsive admin-table-card">
+                            <table class="table table-hover admin-table">
+                                <thead>
+                                    <tr>
+                                        <th width="90">
+                                            Type
+                                            <a href ng-click="$vm.sortBy('type')" class="admin-link">
+                                                <i class="fa fa-sort" ng-class="{
+                                                        'fa-sort-up': $vm.state.sort==='type' && !$vm.state.asc,
+                                                        'fa-sort-down': $vm.state.sort==='type' && $vm.state.asc
+                                                    }"></i>
+                                            </a>
+                                        </th>
+
+                                        <th width="250">
+                                            Name
+                                            <a href ng-click="$vm.sortBy('name')" class="admin-link">
+                                                <i class="fa fa-sort" ng-class="{
+                                                        'fa-sort-up': $vm.state.sort==='name' && !$vm.state.asc,
+                                                        'fa-sort-down': $vm.state.sort==='name' && $vm.state.asc
+                                                    }"></i>
+                                            </a>
+                                        </th>
+
+                                        <th width="250">
+                                            Internal Reference
+                                            <a href ng-click="$vm.sortBy('reference')" class="admin-link">
+                                                <i class="fa fa-sort" ng-class="{
+                                                        'fa-sort-up': $vm.state.sort==='reference' && !$vm.state.asc,
+                                                        'fa-sort-down': $vm.state.sort==='reference' && $vm.state.asc
+                                                    }"></i>
+                                            </a>
+                                        </th>
+
+                                        <th>Description</th>
+
+                                        <th width="120" class="text-center">
+                                            Mandatory
+                                        </th>
+
+                                        <th width="220">
+                                            Options
+                                        </th>
+
+                                        <th width="180" class="text-right">
+                                            Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr ng-repeat="field in $vm.customFields | orderBy:$vm.state.sort:!$vm.state.asc"
+                                        class="admin-row">
+
+                                        <td class="text-center">
+                                            <span class="label label-default admin-label">
+                                                {{field.type | uppercase}}
+                                            </span>
+                                        </td>
+
+                                        <td>
+                                            <div class="admin-name">
+                                                <a href ng-click="$vm.showFieldDialog(field)">
+                                                    <i class="fa fa-pencil-square-o"></i>
+                                                    {{field.name}}
+                                                </a>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <code>{{field.reference}}</code>
+                                        </td>
+
+                                        <td>
+                                            <span class="admin-description">
+                                                {{field.description || 'N/A'}}
+                                            </span>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <span class="label" ng-class="{
+                                                    true: 'admin-label-success',
+                                                    false: 'admin-label-warning'
+                                                }[field.mandatory === true]">
+                                                {{field.mandatory === true ? 'Yes': 'No'}}
+                                            </span>
+                                        </td>
+
+                                        <td ng-if="field.options.length === 0">
+                                            <span class="label label-warning admin-label-warning">
+                                                None
+                                            </span>
+                                        </td>
+
+                                        <td ng-if="field.options.length > 0">
+                                            <span class="label label-default admin-label mr-xxs mb-xxs"
+                                                ng-repeat="option in field.options track by $index">
+                                                {{option}}
+                                            </span>
+                                        </td>
+
+                                        <td class="text-right admin-actions">
+                                            <button class="btn btn-xs btn-primary"
+                                                ng-click="$vm.showFieldDialog(field)">
+                                                <i class="fa fa-pencil"></i>
+                                                Edit
+                                            </button>
+
+                                            <button class="btn btn-xs btn-danger" ng-click="$vm.deleteField(field)">
+                                                <i class="fa fa-trash"></i>
+                                                Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vpad10"></div>
+
+            </div>
+        </div>
+    </div>
+</div>

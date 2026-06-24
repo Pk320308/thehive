@@ -1,0 +1,164 @@
+<div class="row admin-page taxonomy-page">
+    <div class="col-md-12">
+        <div class="box admin-box taxonomy-box">
+
+            <div class="box-header with-border admin-header">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h3 class="box-title admin-title">
+                            <i class="fa fa-tags"></i>
+                            List of Taxonomies
+                        </h3>
+                        <p class="admin-subtitle">
+                            Manage taxonomy namespaces, tags, versions and status
+                        </p>
+                    </div>
+
+                    <div class="col-sm-4 text-right">
+                        <span class="label label-primary admin-count">
+                            {{$vm.list.values.length || 0}} / {{$vm.allTaxonomyCount || 0}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-body admin-body">
+
+                <div class="admin-toolbar">
+                    <div ng-include="'views/partials/admin/taxonomy/list/toolbar.html'"></div>
+                </div>
+
+                <div class="mt-xs filter-panel admin-filter-panel"
+                    ng-include="'views/partials/admin/taxonomy/list/filters.html'"
+                    ng-show="$vm.filtering.context.showFilters">
+                </div>
+
+                <div class="row mt-xs">
+                    <div class="col-md-12 clearfix">
+                        <div class="admin-filter-preview">
+                            <filters-preview filters="$vm.filtering.context.filters"
+                                on-clear-item="$vm.removeFilter(field)" on-clear-all="$vm.clearFilters()">
+                            </filters-preview>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mv-s" ng-show="$vm.loading === false && $vm.list.values.length === 0">
+                    <div class="col-md-12">
+                        <div class="admin-empty">
+                            <i class="fa fa-info-circle"></i>
+                            No taxonomies found.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mv-s" ng-show="$vm.loading === true">
+                    <div class="col-md-12">
+                        <div class="admin-loading">
+                            <i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
+                            <span>Loading taxonomies...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-s" ng-if="$vm.loading === false && $vm.list.values.length > 0">
+
+                    <div class="col-md-12">
+                        <div class="admin-search-box">
+                            <psearch control="$vm.list"></psearch>
+                        </div>
+
+                        <div class="table-responsive admin-table-card">
+                            <table class="table table-hover admin-table case-list">
+                                <thead>
+                                    <tr>
+                                        <th width="60" class="text-center">Status</th>
+                                        <th width="300">
+                                            <i class="fa fa-folder-open"></i>
+                                            Namespace
+                                        </th>
+                                        <th>Description</th>
+                                        <th width="120" class="text-center">Version</th>
+                                        <th width="100" class="text-center"># Tags</th>
+                                        <th width="160" class="text-right">Actions</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr ng-repeat="taxonomy in $vm.list.values" class="admin-row">
+                                        <td class="text-center">
+                                            <span class="clickable taxonomy-status-dot"
+                                                ng-click="$vm.addFilterValue('enabled', !!taxonomy.extraData.enabled)">
+                                                <i class="fa" ng-class="{
+                                                        true: 'text-tlp-green fa-circle',
+                                                        false: 'text-tlp-red fa-circle'
+                                                    }[!!taxonomy.extraData.enabled]">
+                                                </i>
+                                            </span>
+                                        </td>
+
+                                        <td>
+                                            <div class="taxonomy-name admin-name">
+                                                <a href ng-click="$vm.show(taxonomy)">
+                                                    <i class="fa fa-tags"></i>
+                                                    {{::taxonomy.namespace}}
+                                                </a>
+                                            </div>
+                                        </td>
+
+                                        <td class="wrap">
+                                            <div class="admin-description">
+                                                {{::taxonomy.description || 'No description'}}
+                                            </div>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <span class="label label-default admin-label">
+                                                {{::taxonomy.version}}
+                                            </span>
+                                        </td>
+
+                                        <td class="text-center">
+                                            <span class="label label-default admin-label">
+                                                {{::taxonomy.tags.length}}
+                                            </span>
+                                        </td>
+
+                                        <td class="text-right admin-actions">
+                                            <button type="button" class="btn btn-xs" ng-class="{
+                                                    true: 'btn-danger',
+                                                    false: 'btn-success'
+                                                }[!!taxonomy.extraData.enabled]" ng-click="$vm.toggleActive(taxonomy)"
+                                                uib-tooltip="{{!!taxonomy.extraData.enabled ? 'Disable taxonomy' : 'Enable taxonomy'}}">
+                                                <i class="fa" ng-class="{
+                                                        true: 'fa-times-circle',
+                                                        false: 'fa-check-circle'
+                                                    }[!!taxonomy.extraData.enabled]">
+                                                </i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-xs btn-primary"
+                                                ng-click="$vm.show(taxonomy)" uib-tooltip="Edit taxonomy">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+
+                                            <button type="button" class="btn btn-xs btn-danger"
+                                                ng-click="$vm.remove(taxonomy)" uib-tooltip="Delete taxonomy">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="admin-bottom-search">
+                            <psearch control="$vm.list"></psearch>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

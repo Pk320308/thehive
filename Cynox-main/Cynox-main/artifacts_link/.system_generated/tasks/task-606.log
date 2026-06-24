@@ -1,0 +1,28 @@
+
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : angular.module('cynoxControllers', []);
+                    angular.module('cynoxServices', []);
+                    angular.module('cynoxFilters', []);
+                    angular.module('cynoxDirectives', []);
+                    angular.module('cynoxComponents', []);...
+RawContent        : HTTP/1.0 200 OK
+                    Content-Length: 27944
+                    Content-Type: text/javascript
+                    Date: Wed, 27 May 2026 15:04:51 GMT
+                    Last-Modified: Wed, 27 May 2026 09:42:42 GMT
+                    Server: SimpleHTTP/0.6 Python/3.13.13
+                    
+                    angul...
+Forms             : 
+Headers           : {[Content-Length, 27944], [Content-Type, text/javascript], [Date, Wed, 27 May 2026 15:04:51 GMT], 
+                    [Last-Modified, Wed, 27 May 2026 09:42:42 GMT]...}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : 
+RawContentLength  : 27944
+
+
+

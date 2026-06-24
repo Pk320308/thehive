@@ -1,0 +1,6 @@
+Successfully scheduled one-shot timer.
+Expected to fire at: 2026-05-27T17:32:24+05:30
+Prompt: Check if Node.js installation completed and proceed with next steps
+
+[2026-05-27T17:31:24+05:30] Still waiting. Remaining time: 1m0s
+[2026-05-27T17:31:25+05:30] Timer cancelled: agent received a message during wait.

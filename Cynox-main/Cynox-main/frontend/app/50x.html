@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Service Starting - Cynox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient-start: hsl(224, 44%, 15%);
+            --bg-gradient-end: hsl(295, 88%, 18%);
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --card-border: rgba(255, 255, 255, 0.15);
+            --text-primary: hsl(0, 0%, 100%);
+            --text-secondary: hsla(0, 0%, 100%, 0.75);
+            --accent-glow: hsl(295, 88%, 50%);
+            --spinner-color: hsl(280, 100%, 70%);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+            color: var(--text-primary);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Ambient glowing backgrounds */
+        body::before,
+        body::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: 0;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        body::before {
+            background: hsl(220, 100%, 50%);
+            top: 20%;
+            left: 20%;
+            animation: float-slow 12s infinite alternate;
+        }
+
+        body::after {
+            background: var(--accent-glow);
+            bottom: 20%;
+            right: 20%;
+            animation: float-slow 16s infinite alternate-reverse;
+        }
+
+        @keyframes float-slow {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(50px, 50px) scale(1.2);
+            }
+        }
+
+        .card {
+            position: relative;
+            z-index: 10;
+            width: 480px;
+            max-width: 100%;
+            padding: 48px 40px;
+            border-radius: 24px;
+            text-align: center;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin-reverse {
+            0% {
+                transform: rotate(360deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.9);
+                opacity: 0.2;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        h1 {
+            margin: 0 0 16px;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(120deg, #fff, hsl(280, 100%, 85%));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0 0 8px;
+            color: var(--text-secondary);
+        }
+
+        .subtext {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 15px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 6px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            color: hsl(280, 100%, 85%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: hsl(280, 100%, 70%);
+            border-radius: 50%;
+            animation: status-blink 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes status-blink {
+            from {
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>Service is starting, please wait...</h1>
+        <p>Cynox backend is currently initializing database connections and system components.</p>
+        <p>The application will automatically redirect to login once available.</p>
+
+        <div class="status-badge">
+            <div class="status-dot"></div>
+            <span>Checking status...</span>
+        </div>
+
+        <div class="subtext">Auto-retrying connection every 5 seconds</div>
+    </div>
+
+    <script>
+        async function checkStatus() {
+            const statusBadge = document.querySelector('.status-badge span');
+            try {
+                const response = await fetch('/api/status');
+                if (response.status === 200) {
+                    statusBadge.textContent = "Service ready! Redirecting...";
+                    statusBadge.style.color = "hsl(140, 100%, 75%)";
+                    const dot = document.querySelector('.status-dot');
+                    if (dot) dot.style.background = "hsl(140, 100%, 50%)";
+
+                    setTimeout(() => {
+                        window.location.href = '/#/login';
+                    }, 1000);
+                } else {
+                    statusBadge.textContent = "Service starting (Status " + response.status + ")...";
+                }
+            } catch (error) {
+                statusBadge.textContent = "Connecting to backend...";
+                console.log("Check status failed:", error);
+            }
+        }
+
+        // Run checking
+        setInterval(checkStatus, 5000);
+        checkStatus();
+    </script>
+</body>
+
+</html>
