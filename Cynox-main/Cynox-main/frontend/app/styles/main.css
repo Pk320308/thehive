@@ -863,10 +863,8 @@ body, .content-wrapper, .wrapper, .skin-blue .wrapper {
 
 /* FLOATING ISLAND NAVIGATION (Modern Premium Structure) */
 .main-header {
-    position: fixed !important;
-    top: 20px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
+    position: relative !important;
+    margin: 20px auto 30px auto !important;
     width: 95% !important;
     max-width: 1400px !important;
     height: 65px !important;
@@ -947,7 +945,7 @@ body, .content-wrapper, .wrapper, .skin-blue .wrapper {
 /* CONTENT SHIFT FOR ISLAND NAV */
 .content-wrapper {
     margin-left: 0 !important;
-    padding-top: 120px !important; /* Space for the floating island */
+    padding-top: 0 !important; /* Fixed nav removed, no padding needed */
 }
 
 .container-main {
@@ -1169,8 +1167,21 @@ body, .content-wrapper, .wrapper, .skin-blue .wrapper {
     vertical-align: middle;
 }
 
-.table-hover > tbody > tr:hover {
-    background: rgba(255, 255, 255, 0.03) !important;
+/* Removed relative positioning from tr to prevent stacking context bugs */
+/* Apply simple hover effect without transform to avoid breaking fixed side panels */
+.table-hover > tbody > tr:hover,
+.admin-table > tbody > tr:hover,
+.table > tbody > tr:hover {
+    background-color: transparent !important;
+}
+
+/* Ensure no background color overrides during hover */
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th,
+.admin-table > tbody > tr:hover > td,
+.table > tbody > tr:hover > td {
+    background-color: transparent !important;
+    color: var(--text-main) !important;
 }
 
 .table.tbody-stripped > tbody:nth-child(2n+1) > tr > td,
@@ -1235,8 +1246,16 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 /* GLOBAL FIX FOR WHITE BACKGROUNDS AND INVISIBLE LINKS */
-.box, .box-body, .panel, .panel-body, .well, .table-responsive, .content-wrapper, .wrapper, .modal-content, .modal-body {
+.box, .box-body, .panel, .panel-body, .well, .table-responsive, .content-wrapper, .wrapper, .nav-tabs-custom, .tab-content, .tab-pane, .admin-table-card, .organisation-tab-content {
     background-color: transparent !important;
+}
+.modal-content {
+    background: #0f172a !important; /* Solid dark color */
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+.modal-body {
+    background: transparent !important;
 }
 .box, .panel, .card {
     background: var(--bg-glass) !important;
@@ -1247,8 +1266,11 @@ a, a:hover, a:focus, .btn-link {
     color: #60a5fa !important; 
     text-shadow: 0 0 5px rgba(96, 165, 250, 0.3);
 }
-.text-default, .text-muted.text-black, .text-black {
+.text-default, .text-muted.text-black, .text-black, .ng-scope {
     color: var(--text-main) !important;
+}
+.content {
+    padding-top: 90px !important; /* Prevent overlap with floating island */
 }
 
 /* FIX TABLE WHITE BLOCKS */
@@ -1257,4 +1279,85 @@ table, tr, td, th, tbody, thead {
 }
 .admin-table > tbody > tr > td {
     background: var(--bg-surface) !important;
+}
+
+/* MASSIVE TEXT VISIBILITY OVERRIDE FOR DARK THEME */
+body, p, label, th, td, li, dt, dd, .help-block, .control-label, .box-title, .box-header, .info-box-text, .info-box-number, .text-muted, .form-group, .panel-title {
+    color: var(--text-main) !important;
+}
+
+/* FORM INPUTS FIX: Dark background, bright text */
+input, textarea, select, .form-control, .ui-select-match-text, .ui-select-search, .ui-select-choices-row-inner, .select2-choice, .select2-chosen {
+    color: var(--text-main) !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid var(--border-glass) !important;
+}
+
+/* PLACEHOLDERS */
+input::placeholder, textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Ensure colored pills/badges are still fully white text */
+.label, .badge {
+    color: #ffffff !important;
+}
+
+/* FIX: STRICT SOLID MODALS (Popup Fix) */
+.modal-content, .modal-dialog, .modal-header, .modal-footer {
+    background-color: #0f172a !important; /* Force solid dark background */
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+.modal-body {
+    background-color: #0f172a !important;
+}
+
+/* MASSIVE ADMIN UI BACKGROUND OVERRIDE */
+.admin-box,
+.admin-body,
+.admin-toolbar,
+.admin-search-box,
+.admin-bottom-search,
+.admin-filter-preview,
+.admin-filter-panel,
+.admin-table-card,
+.admin-empty,
+.admin-loading,
+.admin-flex-card,
+.admin-flex-header,
+.admin-flex-row,
+.cynox-about-section,
+.cynox-about-row,
+.cynox-about-footer,
+.settings-avatar-preview,
+.settings-mfa-card,
+.settings-qr-box,
+.settings-secret-box,
+.cynox-profile-selected {
+    background: transparent !important;
+    border-color: var(--border-glass) !important;
+}
+
+/* Fix collapse of admin-filter-preview due to floated children */
+.admin-filter-preview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px !important;
+}
+
+.admin-filter-preview::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.admin-table thead tr {
+    background: transparent !important;
+}
+
+.admin-row:hover,
+.admin-flex-row:hover,
+.cynox-about-row:hover {
+    background: transparent !important;
 }
