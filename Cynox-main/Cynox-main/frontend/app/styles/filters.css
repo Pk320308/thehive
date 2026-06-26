@@ -20,7 +20,12 @@
 .active-filters > ul li.filter-item {
     margin-right: 15px;
     border-radius: 3px;
-    background-color: #eee;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+.active-filters > ul li.filter-item * {
+    color: #ffffff !important;
 }
 
 .active-filters > ul li.filter-item .filter-close {
@@ -32,12 +37,17 @@
 }
 
 .active-filters .kv-label .default {
-    background-color: #eee;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+}
+
+.active-filters .kv-label * {
+    color: #ffffff !important;
 }
 
 .filter-panel {
     padding: 10px;
-    background-color: #f5f5f5;
+    background-color: transparent;
     border-left: 4px solid #337ab7;
 }
 
@@ -51,7 +61,7 @@
 
 .stats-panel .stats-item-wrapper {
     padding: 5px;
-    background-color: #f5f5f5;
+    background-color: transparent;
 }
 
 .stats-panel .box {

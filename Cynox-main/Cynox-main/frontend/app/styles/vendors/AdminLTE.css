@@ -3248,8 +3248,8 @@ table.text-center th {
  * ----------------
  */
 .label-default {
-  background-color: #d2d6de;
-  color: #444;
+  background-color: #475569;
+  color: #ffffff;
 }
 
 /*
@@ -6039,8 +6039,8 @@ body.login-page,
   display: inline-block;
   border-radius: 14px;
   padding: 5px 9px;
-  background: #e2e8f0 !important;
-  color: #334155 !important;
+  background: #475569 !important;
+  color: #ffffff !important;
   font-weight: 700;
   margin-bottom: 5px;
 }
@@ -6049,8 +6049,8 @@ body.login-page,
   display: inline-block;
   border-radius: 14px;
   padding: 6px 10px;
-  background: #fef3c7 !important;
-  color: #92400e !important;
+  background: #f59e0b !important;
+  color: #ffffff !important;
   font-weight: 700;
 }
 
@@ -6058,8 +6058,8 @@ body.login-page,
   display: inline-block;
   border-radius: 14px;
   padding: 6px 10px;
-  background: #dcfce7 !important;
-  color: #166534 !important;
+  background: #10b981 !important;
+  color: #ffffff !important;
   font-weight: 800;
 }
 
@@ -6067,8 +6067,8 @@ body.login-page,
   display: inline-block;
   border-radius: 14px;
   padding: 6px 10px;
-  background: #fee2e2 !important;
-  color: #991b1b !important;
+  background: #ef4444 !important;
+  color: #ffffff !important;
   font-weight: 800;
 }
 

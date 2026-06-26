@@ -339,8 +339,8 @@ ul.observable-reports-summary li {
 }
 
 .case-page .case-page-content {
-    background-color: #FFF;
-    padding: 10px 10px 10px 10px;
+    background-color: transparent;
+    padding: 10px;
 }
 
 .case-details dt,
@@ -1360,4 +1360,109 @@ input::placeholder, textarea::placeholder {
 .admin-flex-row:hover,
 .cynox-about-row:hover {
     background: transparent !important;
+}
+
+/* =========================================================================
+   GLOBAL NUCLEAR BACKGROUND OVERRIDES FOR DARK MODE
+   Neutralizes all hardcoded white backgrounds in Bootstrap/AdminLTE/Custom
+   ========================================================================= */
+
+/* Core Layout Boxes & Panels */
+.box,
+.box-body,
+.box-header,
+.box-footer,
+.panel,
+.panel-heading,
+.panel-body,
+.panel-footer,
+.well,
+.info-box,
+.info-box-content,
+.info-box-icon {
+    background: transparent !important;
+    background-color: transparent !important;
+    border-color: var(--border-glass) !important;
+}
+
+/* Tabs & Navigation */
+.nav-tabs-custom,
+.nav-tabs-custom > .nav-tabs,
+.nav-tabs-custom > .tab-content,
+.tab-content,
+.tab-pane,
+.nav-tabs > li > a {
+    background: transparent !important;
+    background-color: transparent !important;
+    border-color: var(--border-glass) !important;
+}
+
+/* Active Tabs */
+.nav-tabs-custom > .nav-tabs > li.active > a,
+.nav-tabs-custom > .nav-tabs > li.active > a:hover,
+.nav-tabs-custom > .nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    background: var(--bg-glass) !important;
+    background-color: var(--bg-glass) !important;
+    color: #ffffff !important;
+    border-color: var(--border-glass) !important;
+}
+
+/* Specific UI Components (Streams, Timelines, Details) */
+.stream,
+.stream-item,
+.timeline-item,
+.timeline-item > .time-label > span,
+.timeline-item > .timeline-header,
+.timeline-item > .timeline-body,
+.timeline-item > .timeline-footer,
+.case-details,
+.observable-details,
+.task-details,
+.dashboard-widget,
+.bg-white {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Additional fix for any generic content wrappers that might have white bg */
+.content,
+.content-wrapper,
+.wrapper,
+body {
+    background-color: transparent !important;
+}
+
+/* Fix for Tags Input component (ng-tags-input) */
+tags-input .tags,
+.tags,
+.host,
+.ti-input-sm {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid var(--border-glass) !important;
+    color: var(--text-main) !important;
+}
+
+tags-input .tags.focused {
+    border-color: #2563eb !important;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2) !important;
+}
+
+tags-input .tags .tag-item {
+    background: #2563eb !important;
+    border: none !important;
+    color: #ffffff !important;
+    border-radius: 6px !important;
+}
+
+/* Fix for Empty Messages */
+.empty-message {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    border: 1px dashed var(--border-glass) !important;
+    color: var(--text-main) !important;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
 }
