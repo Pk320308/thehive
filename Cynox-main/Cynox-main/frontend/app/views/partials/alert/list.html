@@ -195,11 +195,11 @@
 
                                     <td>
                                         <a href
-                                            ng-click="$vm.addFilterValue('source', event.source)">{{event.source}}</a>
+                                            ng-click="$vm.addFilterValue('source', event.source)">{{$vm.formatCynox(event.source)}}</a>
                                     </td>
                                     <td class="wrap">
                                         <strong>
-                                            <span>{{::event.sourceRef}}</span>
+                                            <span>{{::$vm.formatCynox(event.sourceRef)}}</span>
 
                                             <span ng-if="event.externalLink" class="pl-xxs">
                                                 <a ng-href="{{event.externalLink}}" target="_blank"
@@ -214,7 +214,7 @@
                                     <td style="font-size: 0.9em; vertical-align: top;">
                                         <div style="white-space: nowrap; margin-bottom: 4px;"
                                             ng-class="{'text-bold': $vm.filtering.context.sort.indexOf('+date') !== -1 || $vm.filtering.context.sort.indexOf('-date') !== -1}">
-                                            O. <a href ng-click="$vm.addFilterValue('date', event.date)">{{event.date |
+                                            O. <a href ng-click="$vm.addFilterValue('date', event.date)">{{$vm.formatAlertDate(event.date) |
                                                 shortDate}}</a>
                                         </div>
                                         <div style="white-space: nowrap; margin-bottom: 4px;"

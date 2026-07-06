@@ -65,6 +65,16 @@
                 });
             };
 
+            self.formatCynox = function(text) {
+                if (!text || typeof text !== 'string') return text;
+                return text.replace(/wazuh/gi, 'Cynox');
+            };
+
+            self.formatAlertDate = function(date) {
+                if (!date) return date;
+                return date - (new Date().getTimezoneOffset() * 60000);
+            };
+
             self.load = function () {
                 var config = {
                     scope: $scope,
