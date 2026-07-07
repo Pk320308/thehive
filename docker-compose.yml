@@ -14,7 +14,7 @@ services:
         soft: 65536
         hard: 65536
     volumes:
-      - elasticsearch_data:/usr/share/elasticsearch/data
+      - ./db_data/elasticsearch:/usr/share/elasticsearch/data
     restart: unless-stopped
 
   cassandra:
@@ -25,7 +25,7 @@ services:
     ports:
       - "9042:9042"
     volumes:
-      - cassandra_data:/var/lib/cassandra
+      - ./db_data/cassandra:/var/lib/cassandra
     restart: unless-stopped
 
   cynox:
@@ -38,7 +38,7 @@ services:
     volumes:
       - ./Cynox-main/Cynox-main/conf/application.conf:/etc/thehive/application.conf
       - ./Cynox-main/Cynox-main/conf/secret.conf:/etc/thehive/secret.conf
-      - cynox_data:/opt/thp/thehive/files
+      - ./db_data/cynox:/opt/thp/thehive/files
     restart: unless-stopped
 
   nginx:
@@ -53,8 +53,4 @@ services:
       - ./Cynox-main/Cynox-main/frontend/dist:/usr/share/nginx/html:ro
       - ./Cynox-main/Cynox-main/frontend/app/50x.html:/usr/share/nginx/html/50x.html:ro
     restart: unless-stopped
-
-volumes:
-  elasticsearch_data:
-  cassandra_data:
-  cynox_data:
+

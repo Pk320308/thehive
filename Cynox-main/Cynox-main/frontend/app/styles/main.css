@@ -1466,3 +1466,8 @@ tags-input .tags .tag-item {
     padding: 18px;
     text-align: center;
 }
+
+/* Fix for Chart Legends */
+.c3-legend-item text {
+    fill: white !important;
+}
